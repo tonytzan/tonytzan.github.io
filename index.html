@@ -114,6 +114,34 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .step span{font-size:14px;color:var(--mute)}
 .step.gate{background:none;border:1.5px dashed var(--gate)}
 .step.gate small{color:var(--gate)}
+.flow{display:flex;flex-direction:column;gap:14px}
+.agents{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:10px;font-family:"Geist Mono",monospace;font-size:12.5px}
+.ag{--c:var(--dim);display:grid;grid-template-columns:auto 1fr;column-gap:10px;align-items:center;padding:12px 14px;border:1px solid var(--line2);border-radius:12px;background:var(--panel);transition:border-color .3s,box-shadow .3s}
+.ag i{grid-row:1/3;width:8px;height:8px;border-radius:99px;background:var(--c);opacity:.45;transition:opacity .3s}
+.ag b{font-weight:500;color:var(--soft)}
+.ag span{color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .3s}
+.ag.on{border-color:var(--c);box-shadow:0 0 28px -10px var(--c)}
+.ag.on i{opacity:1;animation:ping 1.3s infinite}
+.ag.on span{color:var(--text)}
+@keyframes ping{0%{box-shadow:0 0 0 0 var(--c)}100%{box-shadow:0 0 0 7px transparent}}
+.c-claude{--c:#E8956B}.c-codex{--c:#6CB6FF}.c-grok{--c:#C4A2FF}.c-me{--c:var(--gate)}
+.step{position:relative;overflow:hidden;transition:opacity .4s,border-color .3s,background .3s}
+.step::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left}
+.step.gate::after{background:var(--gate)}
+.step.ship::after{background:var(--bg)}
+.step.active::after{animation:fill var(--d,2.5s) linear forwards}
+.step.done::after{transform:scaleX(1);opacity:.4}
+@keyframes fill{to{transform:scaleX(1)}}
+.flow.run .step:not(.active):not(.done){opacity:.42}
+.flow.run .step.ship:not(.active):not(.done){opacity:.6}
+.step.active{border-color:var(--accent)}
+.step.gate.active{border-color:var(--gate);background:rgba(255,177,74,.07)}
+.step.done{border-color:rgba(200,241,105,.45)}
+.step.gate.done{border-style:solid}
+.step.gate.done small{color:var(--accent)}
+.chips span{transition:background .3s,color .3s}
+.chips span.on{background:var(--c);color:#15130f}
+.flow.paused *,.flow.paused *::after{animation-play-state:paused!important}
 .step.ship{background:var(--accent);border-color:var(--accent);color:var(--bg)}
 .step.ship small{color:#2E3A12}.step.ship span{color:#26300E}
 .chips{display:flex;flex-wrap:wrap;gap:6px;font-family:"Geist Mono",monospace;font-size:12px}
@@ -188,9 +216,10 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .links a:first-child{border-top:0}
 .links a::after{display:none}
 }
+@media (max-width:640px){.ag{padding:10px 12px;column-gap:8px;font-size:12px}}
 @media (max-width:400px){.who .id b{font-size:17px}}
 @media (max-width:640px){.sec .wrap{padding-top:72px;padding-bottom:64px}.hero{padding-top:56px}}
-@media print{*{color:#15130f!important;background:none!important;border-color:#cfc9bd!important;animation:none!important}.nav,.reveal{position:static}.reveal{opacity:1!important;transform:none!important}body{background:#fff!important}}
+@media print{.agents{display:none}.step{opacity:1!important}*{color:#15130f!important;background:none!important;border-color:#cfc9bd!important;animation:none!important}.nav,.reveal{position:static}.reveal{opacity:1!important;transform:none!important}body{background:#fff!important}}
 </style>
 </head>
 <body>
@@ -238,14 +267,22 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 <div class="head"><span class="eyebrow">01 — The harness</span>
 <h2>One engineer across three layers, because the agents carry the volume.</h2>
 <p class="lead">I run feature work through a pipeline of AI coding agents inside Claude Code — custom slash commands for each SDLC stage. Agents draft, implement and test. I set the spec, approve the plan and review every diff before it ships.</p></div>
+<div class="flow">
+<div class="agents" aria-hidden="true">
+<div class="ag c-claude" data-ag="claude"><i></i><b>Claude Code</b><span>idle</span></div>
+<div class="ag c-codex" data-ag="codex"><i></i><b>Codex</b><span>idle</span></div>
+<div class="ag c-grok" data-ag="grok"><i></i><b>Grok</b><span>idle</span></div>
+<div class="ag c-me" data-ag="me"><i></i><b>Me</b><span>standing by</span></div>
+</div>
 <div class="pipe">
 <div class="step "><small>AGENT</small><b>Spec</b><span>Design → ticket → acceptance criteria</span></div>
-<div class="step gate"><small>◆ HUMAN GATE</small><b>Approve spec</b><span>Scope, edge cases, compliance</span></div>
+<div class="step gate" data-done="✓ APPROVED"><small>◆ HUMAN GATE</small><b>Approve spec</b><span>Scope, edge cases, compliance</span></div>
 <div class="step "><small>AGENT</small><b>Plan</b><span>Tasks split by mobile, API, web</span></div>
 <div class="step w"><small>AGENTS ∥ PARALLEL</small><b>Build</b><div class="chips"><span>Flutter</span><span>Java</span><span>Node/TS</span><span>React</span></div></div>
 <div class="step "><small>AGENT</small><b>Verify</b><span>Tests, lint, AI code review</span></div>
-<div class="step gate"><small>◆ HUMAN GATE</small><b>Review diff</b><span>Architecture, security, UX</span></div>
-<div class="step ship"><small>CI/CD</small><b>Ship</b><span>App Store, Play Store, GCP, AWS, Vercel</span></div>
+<div class="step gate" data-done="✓ APPROVED"><small>◆ HUMAN GATE</small><b>Review diff</b><span>Architecture, security, UX</span></div>
+<div class="step ship" data-done="✓ SHIPPED"><small>CI/CD</small><b>Ship</b><span>App Store, Play Store, GCP, AWS, Vercel</span></div>
+</div>
 </div>
 <div class="grid3">
 <div class="box"><small>a.</small><h3>Specs are the contract</h3><p>Specs first, code second. A clear spec is what agents implement against and what I review against — no vibes, no drift.</p></div>
@@ -346,6 +383,45 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
     ov.addEventListener("click",close);document.addEventListener("keydown",esc);
     document.body.appendChild(ov);
   });
+  (function(){
+    var flow=document.querySelector(".flow");
+    if(!flow||!("IntersectionObserver" in window)||matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+    var steps=[].slice.call(flow.querySelector(".pipe").children),chips=[].slice.call(flow.querySelectorAll(".chips span")),ag={};
+    [].forEach.call(flow.querySelectorAll(".ag"),function(a){var s=a.querySelector("span");ag[a.getAttribute("data-ag")]={el:a,s:s,idle:s.textContent};});
+    steps.forEach(function(s){s.setAttribute("data-label",s.querySelector("small").textContent);});
+    /* illustrative timeline: which agent is busy at each stage */
+    var plan=[
+      {d:2600,who:{claude:"drafting spec"}},
+      {d:2300,who:{me:"reviewing spec"}},
+      {d:2500,who:{claude:"task split"}},
+      {d:4200,who:{claude:"Flutter · Java",codex:"Node/TS API",grok:"React web"},chips:["claude","claude","codex","grok"]},
+      {d:3200,who:{codex:"AI code review",grok:"tests · lint"}},
+      {d:2300,who:{me:"reviewing diff"}},
+      {d:2800,who:{claude:"opening PR"}}
+    ];
+    var n=-1,t=0;
+    function setStep(i){
+      steps.forEach(function(s,k){
+        var small=s.querySelector("small"),done=k<i;
+        s.classList.remove("active");
+        s.classList.toggle("done",done);
+        small.textContent=done&&s.getAttribute("data-done")?s.getAttribute("data-done"):s.getAttribute("data-label");
+        if(k===i){s.style.setProperty("--d",plan[k].d+"ms");void s.offsetWidth;s.classList.add("active");}
+      });
+      var p=plan[i]||{who:{}};
+      Object.keys(ag).forEach(function(k){var on=k in p.who;ag[k].el.classList.toggle("on",on);ag[k].s.textContent=on?p.who[k]:ag[k].idle;});
+      chips.forEach(function(c,k){c.className=p.chips?"on c-"+p.chips[k]:"";});
+    }
+    function run(){
+      flow.classList.add("run");
+      setStep(n);
+      t=setTimeout(function(){n=n>=steps.length?-1:n+1;run();},n<0?700:n>=steps.length?2600:plan[n].d);
+    }
+    new IntersectionObserver(function(es){
+      if(es[0].isIntersecting){flow.classList.remove("paused");if(!t)run();}
+      else{flow.classList.add("paused");clearTimeout(t);t=0;}
+    },{threshold:.25}).observe(flow);
+  })();
   var nav=document.querySelector(".nav"),burger=nav.querySelector(".burger");
   function setMenu(o){nav.classList.toggle("open",o);burger.setAttribute("aria-expanded",o);}
   burger.addEventListener("click",function(){setMenu(!nav.classList.contains("open"));});
