@@ -209,7 +209,20 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .work{border-radius:20px;background:var(--panel);border:1px solid var(--line2);overflow:hidden;display:flex;flex-direction:column}
 .work.wide{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}
 .shot{background:var(--panel2);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;height:300px;padding-top:28px;cursor:zoom-in}
-.shot img{height:100%;width:auto;max-width:none;object-fit:cover;object-position:top;border-radius:14px 14px 0 0}
+.shot{position:relative;background:radial-gradient(90% 85% at 50% 100%,var(--tint,transparent),transparent 72%),var(--panel2)}
+.shot img{height:100%;width:auto;max-width:none;object-fit:cover;object-position:top;border-radius:14px 14px 0 0;box-shadow:0 0 0 1px rgba(255,255,255,.10),0 22px 40px -18px #000}
+.shot.duo{gap:14px;padding-left:20px;padding-right:20px}
+.shot.duo .web{flex:1 1 0;min-width:0;width:0;object-position:left top}
+.shot.duo .phone{flex:none}
+@media (max-width:700px){.shot.duo .web{display:none}}
+.shot::after{content:"Zoom";position:absolute;right:12px;top:12px;padding:4px 10px;border:1px solid var(--line3);border-radius:99px;background:rgba(15,16,13,.72);font-family:"Geist Mono",monospace;font-size:11px;color:var(--soft);opacity:0;transition:opacity .2s;pointer-events:none}
+.shot:hover::after{opacity:1}
+@media (hover:none){.shot::after{opacity:.85}}
+.rl{margin-top:-6px;font-family:"Geist Mono",monospace;font-size:12.5px;line-height:1.5;color:var(--dim)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:10px}
+.kpis div{padding:12px 14px;border:1px solid var(--line2);border-radius:12px;background:rgba(255,255,255,.02);display:flex;flex-direction:column;gap:2px}
+.kpis b{font-size:22px;font-weight:600;letter-spacing:-.02em;line-height:1.2;color:var(--accent)}
+.kpis span{font-size:13px;color:var(--mute)}
 .work.wide .shot{flex:1 1 420px;height:auto;min-height:320px;padding:28px 28px 0;gap:20px}
 .work.wide .shot img{height:auto;max-height:340px;max-width:100%}
 .info{padding:28px;display:flex;flex-direction:column;gap:14px;flex:1}
@@ -359,49 +372,55 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 </div></section>
 
 <section id="work" class="sec reveal"><div class="wrap">
-<div class="head"><span class="eyebrow">02 — Selected work</span><h2>Products, end to end.</h2></div>
+<div class="head"><span class="eyebrow">02 — Selected work</span><h2>Products, end to end.</h2><p class="lead">From architecture to store release, and keeping the app running when it counts.</p></div>
 <div class="works">
 <article class="work wide">
-<div class="shot"><img src="assets/shot-clevercards.png" alt="CleverCards app screenshot" data-zoom></div>
+<div class="shot" style="--tint:rgba(139,60,255,.30)"><img src="assets/shot-clevercards.png" alt="CleverCards app screenshot" data-zoom></div>
 <div class="info">
 <div class="chips pills"><span class="hl">★ #1 Finance, Ireland</span><span class="">Mobile</span><span class="">Fintech</span></div>
 <h3><img src="assets/logo-clevercards.png" alt="">CleverCards</h3>
-<p>Helped rebuild the flagship app in Flutter and keep it running through three peak Christmas seasons at 30–50k DAU. 99% crash-free, app size down ~70%, load time down ~60%, and #1 in Finance on the Irish App Store.</p>
+<div class="rl">Senior Mobile → Full Stack Engineer · Feb 2023 — now</div>
+<p>Helped rebuild the flagship app in Flutter and keep it running through three peak Christmas seasons.</p>
+<div class="kpis"><div><b>30–50k</b><span>daily active users</span></div><div><b>99%</b><span>crash-free</span></div><div><b>~70%</b><span>smaller app</span></div><div><b>~60%</b><span>faster load</span></div></div>
 <div class="store"><a href="https://apps.apple.com/us/app/clevercards/id1521860373" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=com.clevercards.clevercash" target="_blank" rel="noopener">Google Play</a><a href="https://www.clevercards.com/" target="_blank" rel="noopener">Website</a></div>
 </div>
 </article>
 <article class="work">
-<div class="shot"><img src="assets/shot-shipeace-web.png" alt="Shipeace web app" data-zoom><img src="assets/shot-shipeace-mobile.png" alt="Shipeace mobile app" data-zoom></div>
+<div class="shot duo" style="--tint:rgba(37,87,167,.34)"><img class="web" src="assets/shot-shipeace-web.png" alt="Shipeace web app" data-zoom><img class="phone" src="assets/shot-shipeace-mobile.png" alt="Shipeace mobile app" data-zoom></div>
 <div class="info">
-<div class="chips pills"><span class="">Mobile</span><span class="">AI workflow</span><span class="">Logistics</span></div>
+<div class="chips pills"><span class="hl">$1.5M raised</span><span class="">Mobile</span><span class="">AI workflow</span><span class="">Logistics</span></div>
 <h3><img src="assets/logo-shipeace.png" alt=""><a href="https://www.shipeace.com/en" target="_blank" rel="noopener" style="text-decoration:none">Shipeace</a></h3>
+<div class="rl">Senior Full Stack Engineer, AI-First · Jul 2024 — now</div>
 <p>AI logistics platform. Led the mobile team, introduced the AI-augmented development process and helped get the product investment-ready — $1.5M raised.</p>
 <div class="store"><a href="https://www.shipeace.com/en" target="_blank" rel="noopener">Website</a><a href="https://play.google.com/store/apps/details?id=com.logipeace.shipeace_app" target="_blank" rel="noopener">Google Play</a></div>
 </div>
 </article>
 <article class="work">
-<div class="shot"><img src="assets/shot-arki.png" alt="Arki Finance app screenshot" data-zoom></div>
+<div class="shot" style="--tint:rgba(20,150,105,.32)"><img src="assets/shot-arki.png" alt="Arki Finance app screenshot" data-zoom></div>
 <div class="info">
-<div class="chips pills"><span>Mobile</span><span>Wealth</span><span>MAS-licensed</span></div>
+<div class="chips pills"><span>Mobile</span><span>Wealth</span><span class="hl">MAS-licensed</span></div>
 <h3><img src="assets/logo-arki.png" alt=""><a href="https://www.arkifinance.com/" target="_blank" rel="noopener" style="text-decoration:none">Arki Finance</a></h3>
+<div class="rl">Senior Full Stack Engineer, AI-First · Feb 2026 — now</div>
 <p>Personalised wealth platform licensed by the Monetary Authority of Singapore. Consulting on the mobile app as frontend lead, working with the CTO and Principal Engineer.</p>
 <div class="store"><a href="https://apps.apple.com/sg/app/arki-finance/id6733229005" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=com.optimalvest&amp;hl=en" target="_blank" rel="noopener">Google Play</a><a href="https://www.arkifinance.com/" target="_blank" rel="noopener">Website</a></div>
 </div>
 </article>
 <article class="work">
-<div class="shot"><img src="assets/shot-snapex.avif" alt="SnapEx crypto market screen" data-zoom></div>
+<div class="shot" style="--tint:rgba(242,170,120,.26)"><img src="assets/shot-snapex.avif" alt="SnapEx crypto market screen" data-zoom></div>
 <div class="info">
 <div class="chips pills"><span class="">Mobile</span><span class="">Crypto</span></div>
 <h3><img src="assets/logo-snapex.png" alt="">SnapEx</h3>
+<div class="rl">Mobile Tech Lead · Oct 2022 — Jan 2023</div>
 <p>Crypto derivatives exchange with live markets and take-profit / stop-loss trading, rebuilt solo in Flutter as mobile tech lead.</p>
 
 </div>
 </article>
 <article class="work">
-<div class="shot"><img src="assets/shot-acktrails.png" alt="ACKTrails app screenshot" data-zoom></div>
+<div class="shot" style="--tint:rgba(70,130,210,.30)"><img src="assets/shot-acktrails.png" alt="ACKTrails app screenshot" data-zoom></div>
 <div class="info">
 <div class="chips pills"><span class="">Mobile</span><span class="">Maps</span></div>
 <h3><img src="assets/logo-acktrails.png" alt=""><a href="https://acktrails.com/" target="_blank" rel="noopener" style="text-decoration:none">ACKTrails</a></h3>
+<div class="rl">Senior Mobile Developer · The Collective C · Apr 2020 — Apr 2021</div>
 <p>Outdoor navigation app for the Nantucket Conservation Foundation.</p>
 <div class="store"><a href="https://apps.apple.com/us/app/acktrails/id1462021860" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=com.nantucket.acktrails.android" target="_blank" rel="noopener">Google Play</a></div>
 </div>
@@ -439,7 +458,7 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 <script>
 (function(){
   document.addEventListener("click",function(e){
-    var img=e.target.closest("[data-zoom]");if(!img)return;
+    var sh=e.target.closest(".shot"),img=e.target.closest("[data-zoom]")||(sh&&sh.querySelector("[data-zoom]"));if(!img)return;
     var ov=document.createElement("div");
     ov.setAttribute("style","position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:32px;background:rgba(15,16,13,.92);cursor:zoom-out");
     var big=document.createElement("img");big.src=img.src;big.alt=img.alt;
