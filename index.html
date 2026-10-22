@@ -137,7 +137,14 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .step.gate{background:none;border:1.5px dashed var(--gate)}
 .step.gate small{color:var(--gate)}
 .flow{position:relative;display:flex;flex-direction:column;gap:40px}
-.flow .pipe{row-gap:34px}
+.flow .pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:34px 14px}
+.flow .step{flex:none}
+.receipts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:14px}
+.receipts div{padding:22px;border:1px solid var(--line2);border-radius:16px;background:var(--panel);display:flex;flex-direction:column;gap:6px}
+.receipts b{font-size:30px;font-weight:600;letter-spacing:-.02em;line-height:1.15}
+.receipts span{font-size:14px;color:var(--mute)}
+.note{max-width:760px;font-size:14px;color:var(--mute)}
+.note code,.box code{font-family:"Geist Mono",monospace;font-size:.9em;color:var(--soft)}
 .agents{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:10px;font-family:"Geist Mono",monospace;font-size:12.5px}
 .ag{--c:var(--dim);display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:center;padding:10px 14px 10px 10px;border:1px solid var(--line2);border-radius:14px;background:var(--panel);transition:border-color .3s,box-shadow .3s}
 .slot{grid-row:1/3;width:36px;height:36px;border-radius:50%;border:1.5px dashed var(--line3);background:var(--panel2);display:grid;place-items:center;overflow:hidden}
@@ -156,9 +163,9 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .bot.ok::before{content:"✓";position:absolute;right:-5px;top:-5px;width:17px;height:17px;border-radius:50%;background:var(--accent);color:var(--bg);font:600 11px/17px "Geist Mono",monospace;text-align:center;z-index:2}
 @keyframes bob{50%{transform:translateY(-4px)}}
 @keyframes ring{to{transform:scale(1.9);opacity:0}}
-.slot svg.mascot,.bot svg.mascot{stroke:none;stroke-width:0}
-.slot svg.mascot{width:28px;height:20px}
-.bot svg.mascot{width:40px;height:29px;overflow:visible}
+.slot svg.mascot,.bot svg.mascot{stroke:none;stroke-width:0;color:var(--m,#CC6143)}
+.slot svg.mascot{width:28px;height:25px}
+.bot svg.mascot{width:40px;height:36px;overflow:visible}
 .bot.mascot .in{background:none;border:0;box-shadow:none;overflow:visible;border-radius:0}
 .bot.mascot.busy::after{display:none}
 .eyes-work{display:none}
@@ -171,7 +178,7 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .bot.moving .l2,.bot.moving .l4,.bot.moving .al{animation:step .3s steps(1,end) -.15s infinite}
 .bot.busy:not(.moving) .al{animation:step .5s steps(1,end) infinite}
 .bot.busy:not(.moving) .ar{animation:step .5s steps(1,end) -.25s infinite}
-.c-claude{--c:#E8956B}.c-codex{--c:#6CB6FF}.c-grok{--c:#C4A2FF}.c-me{--c:var(--gate)}
+.c-claude{--c:#E8956B;--m:#CC6143}.c-advisor{--c:#C4A2FF;--m:#9B7BE0}.c-architect{--c:#6CB6FF;--m:#4A90D9}.c-builder{--c:#5FD3B8;--m:#3FB89A}.c-reviewer{--c:#FF8FB1;--m:#E0668F}.c-me{--c:var(--gate)}
 .step{position:relative;overflow:hidden;transition:opacity .4s,border-color .3s,background .3s}
 .step::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left}
 .step.gate::after{background:var(--gate)}
@@ -263,6 +270,7 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .links a:first-child{border-top:0}
 .links a::after{display:none}
 }
+@media (max-width:700px){.flow .pipe{grid-template-columns:repeat(2,1fr);gap:34px 10px}}
 @media (max-width:640px){.ag{padding:8px 10px 8px 8px;column-gap:9px;font-size:12px}}
 @media (max-width:400px){.who .id b{font-size:17px}}
 @media (max-width:640px){.sec .wrap{padding-top:72px;padding-bottom:64px}.hero{padding-top:56px}}
@@ -289,14 +297,14 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 </div>
 <div class="term" aria-label="Feature-run pipeline">
 <div class="bar"><span>harness / feature-run</span><span>mobile · api · web</span></div>
-<div class="body"><span class="n">01</span>  <span class="a">spec</span>     PM design → spec + acceptance criteria
-<span class="g"><span class="n">02</span>  ◆ gate   you approve the spec</span>
-<span class="n">03</span>  <span class="a">plan</span>     agent splits work by layer
-<span class="g"><span class="n">04</span>  ◆ gate   you approve the plan</span>
-<span class="n">05</span>  <span class="a">build</span>    flutter · java ∥ node api ∥ react
-<span class="n">06</span>  <span class="a">verify</span>   tests · lint · AI review
-<span class="g"><span class="n">07</span>  ◆ gate   you review the diff</span>
-<span class="n">08</span>  <span class="a">ship</span>     CI/CD → stores · GCP · AWS · Vercel
+<div class="body"><span class="n">01</span>  <span class="a">brief</span>    problem, outcome, evidence
+<span class="g"><span class="n">02</span>  ◆ gate   you approve the brief</span>
+<span class="n">03</span>  <span class="a">design</span>   requirements · design · tasks
+<span class="n">04</span>  <span class="a">review</span>   fresh-context spec review
+<span class="g"><span class="n">05</span>  ◆ gate   you approve the spec</span>
+<span class="n">06</span>  <span class="a">build</span>    one builder per task
+<span class="n">07</span>  <span class="a">audit</span>    diff vs design · green / yellow / red
+<span class="g"><span class="n">08</span>  ◆ gate   you accept → CI/CD ships</span>
 
 <span class="cursor"></span></div>
 </div>
@@ -313,28 +321,40 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 <section id="harness" class="sec reveal"><div class="wrap">
 <div class="head"><span class="eyebrow">01 — The harness</span>
 <h2>One engineer across three layers, because the agents carry the volume.</h2>
-<p class="lead">I run feature work through a pipeline of AI coding agents inside Claude Code — custom slash commands for each SDLC stage. Agents draft, implement and test. I set the spec, approve the plan and review every diff before it ships.</p></div>
+<p class="lead">I run feature work through a team of Claude Code subagents — an advisor, an architect, builders and a reviewer, each pinned to the model and effort its job needs — driven by slash commands for every stage of a spec lifecycle. They draft, build and audit. I approve the brief, approve the spec and accept what ships.</p></div>
 <div class="flow">
 <div class="agents" aria-hidden="true">
-<div class="ag c-claude" data-ag="claude"><span class="slot"><svg class="mascot" viewBox="0 0 11 8" shape-rendering="crispEdges"><g fill="#CC6143"><rect x="1" y="0" width="9" height="6"/><rect class="al" x="0" y="3" width="1" height="2"/><rect class="ar" x="10" y="3" width="1" height="2"/><rect class="l1" x="2" y="6" width="1" height="2"/><rect class="l2" x="4" y="6" width="1" height="2"/><rect class="l3" x="6" y="6" width="1" height="2"/><rect class="l4" x="8" y="6" width="1" height="2"/></g><g class="eyes-dot" fill="#15130f"><rect x="3" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/></g><g class="eyes-work" fill="#15130f"><rect x="2" y="1" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="8" y="1" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/></g></svg></span><b>Claude Code</b><em class="st">idle</em></div>
-<div class="ag c-codex" data-ag="codex"><span class="slot"><svg viewBox="0 0 24 24"><path d="m5 7 5.5 5L5 17"/><path d="M13 18h6"/></svg></span><b>Codex</b><em class="st">idle</em></div>
-<div class="ag c-grok" data-ag="grok"><span class="slot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5"/><path d="M4 20 20 4"/></svg></span><b>Grok</b><em class="st">idle</em></div>
-<div class="ag c-me" data-ag="me"><span class="slot"><img src="assets/profile.jpg" alt="" width="36" height="36"></span><b>Me</b><em class="st">standing by</em></div>
+<div class="ag c-claude" data-ag="claude"><span class="slot"><svg class="mascot" viewBox="0 -2 11 10" shape-rendering="crispEdges"><g fill="currentColor"><rect x="1" y="0" width="9" height="6"/><rect class="al" x="0" y="3" width="1" height="2"/><rect class="ar" x="10" y="3" width="1" height="2"/><rect class="l1" x="2" y="6" width="1" height="2"/><rect class="l2" x="4" y="6" width="1" height="2"/><rect class="l3" x="6" y="6" width="1" height="2"/><rect class="l4" x="8" y="6" width="1" height="2"/></g><g class="eyes-dot" fill="#15130f"><rect x="3" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/></g><g class="eyes-work" fill="#15130f"><rect x="2" y="1" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="8" y="1" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/></g></svg></span><b>Claude Code</b><em class="st">Sonnet med</em></div>
+<div class="ag c-advisor" data-ag="advisor"><span class="slot"><svg class="mascot" viewBox="0 -2 11 10" shape-rendering="crispEdges"><g fill="currentColor"><rect x="1" y="0" width="9" height="6"/><rect class="al" x="0" y="3" width="1" height="2"/><rect class="ar" x="10" y="3" width="1" height="2"/><rect class="l1" x="2" y="6" width="1" height="2"/><rect class="l2" x="4" y="6" width="1" height="2"/><rect class="l3" x="6" y="6" width="1" height="2"/><rect class="l4" x="8" y="6" width="1" height="2"/></g><g fill="#F5C84C"><rect x="2" y="-2" width="1" height="1"/><rect x="5" y="-2" width="1" height="1"/><rect x="8" y="-2" width="1" height="1"/><rect x="2" y="-1" width="7" height="1"/></g><g class="eyes-dot" fill="#15130f"><rect x="3" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/></g><g class="eyes-work" fill="#15130f"><rect x="2" y="1" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="8" y="1" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/></g></svg></span><b>Advisor</b><em class="st">Fable xhigh</em></div>
+<div class="ag c-architect" data-ag="architect"><span class="slot"><svg class="mascot" viewBox="0 -2 11 10" shape-rendering="crispEdges"><g fill="currentColor"><rect x="1" y="0" width="9" height="6"/><rect class="al" x="0" y="3" width="1" height="2"/><rect class="ar" x="10" y="3" width="1" height="2"/><rect class="l1" x="2" y="6" width="1" height="2"/><rect class="l2" x="4" y="6" width="1" height="2"/><rect class="l3" x="6" y="6" width="1" height="2"/><rect class="l4" x="8" y="6" width="1" height="2"/></g><g fill="#BFE0FF"><rect x="5" y="-2" width="1" height="1"/><rect x="4" y="-1" width="3" height="1"/></g><g class="eyes-dot" fill="#15130f"><rect x="3" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/></g><g class="eyes-work" fill="#15130f"><rect x="2" y="1" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="8" y="1" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/></g></svg></span><b>Architect</b><em class="st">Opus xhigh</em></div>
+<div class="ag c-builder" data-ag="builder"><span class="slot"><svg class="mascot" viewBox="0 -2 11 10" shape-rendering="crispEdges"><g fill="currentColor"><rect x="1" y="0" width="9" height="6"/><rect class="al" x="0" y="3" width="1" height="2"/><rect class="ar" x="10" y="3" width="1" height="2"/><rect class="l1" x="2" y="6" width="1" height="2"/><rect class="l2" x="4" y="6" width="1" height="2"/><rect class="l3" x="6" y="6" width="1" height="2"/><rect class="l4" x="8" y="6" width="1" height="2"/></g><g fill="#F5C84C"><rect x="3" y="-2" width="5" height="1"/><rect x="2" y="-1" width="7" height="1"/></g><g class="eyes-dot" fill="#15130f"><rect x="3" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/></g><g class="eyes-work" fill="#15130f"><rect x="2" y="1" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="8" y="1" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/></g></svg></span><b>Builder</b><em class="st">Sonnet high</em></div>
+<div class="ag c-reviewer" data-ag="reviewer"><span class="slot"><svg class="mascot" viewBox="0 -2 11 10" shape-rendering="crispEdges"><g fill="currentColor"><rect x="1" y="0" width="9" height="6"/><rect class="al" x="0" y="3" width="1" height="2"/><rect class="ar" x="10" y="3" width="1" height="2"/><rect class="l1" x="2" y="6" width="1" height="2"/><rect class="l2" x="4" y="6" width="1" height="2"/><rect class="l3" x="6" y="6" width="1" height="2"/><rect class="l4" x="8" y="6" width="1" height="2"/></g><g fill="#F3F3EE"><rect x="2" y="1" width="3" height="1"/><rect x="2" y="3" width="3" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="6" y="1" width="3" height="1"/><rect x="6" y="3" width="3" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="8" y="2" width="1" height="1"/><rect x="5" y="2" width="1" height="1"/></g><g class="eyes-dot" fill="#15130f"><rect x="3" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/></g><g class="eyes-work" fill="#15130f"><rect x="2" y="1" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="8" y="1" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/></g></svg></span><b>Reviewer</b><em class="st">Opus high</em></div>
+<div class="ag c-me" data-ag="me"><span class="slot"><img src="assets/profile.jpg" alt="" width="36" height="36"></span><b>Me</b><em class="st">gatekeeper</em></div>
 </div>
 <div class="pipe">
-<div class="step "><small>AGENT</small><b>Spec</b><span>Design → ticket → acceptance criteria</span></div>
-<div class="step gate" data-done="✓ APPROVED"><small>◆ HUMAN GATE</small><b>Approve spec</b><span>Scope, edge cases, compliance</span></div>
-<div class="step "><small>AGENT</small><b>Plan</b><span>Tasks split by mobile, API, web</span></div>
-<div class="step w"><small>AGENTS ∥ PARALLEL</small><b>Build</b><div class="chips"><span>Flutter</span><span>Java</span><span>Node/TS</span><span>React</span></div></div>
-<div class="step "><small>AGENT</small><b>Verify</b><span>Tests, lint, AI code review</span></div>
-<div class="step gate" data-done="✓ APPROVED"><small>◆ HUMAN GATE</small><b>Review diff</b><span>Architecture, security, UX</span></div>
-<div class="step ship" data-done="✓ SHIPPED"><small>CI/CD</small><b>Ship</b><span>App Store, Play Store, GCP, AWS, Vercel</span></div>
+<div class="step"><small>CLAUDE · SONNET</small><b>Brief</b><span>Who hurts, the outcome, the evidence. The Advisor weighs in on fuzzy ideas.</span></div>
+<div class="step gate" data-done="✓ APPROVED"><small>◆ HUMAN GATE</small><b>Approve brief</b><span>Problem agreed before any “how” is written</span></div>
+<div class="step"><small>ARCHITECT · OPUS</small><b>Design</b><span>Requirements, design and tasks, each tagged standard or high</span></div>
+<div class="step"><small>REVIEWER · OPUS</small><b>Review</b><span>Fresh-context review by a mind that didn’t write the spec</span></div>
+<div class="step gate" data-done="✓ APPROVED"><small>◆ HUMAN GATE</small><b>Approve spec</b><span>Nothing is built until I set Approved</span></div>
+<div class="step"><small>BUILDER · SONNET</small><b>Build</b><span>One builder per task; high-risk tasks run on Opus</span><div class="chips"><span>task 1</span><span>task 2 · high</span><span>task 3</span></div></div>
+<div class="step"><small>REVIEWER · OPUS</small><b>Audit</b><span>Diff judged against the design: green, yellow or red</span></div>
+<div class="step ship" data-done="✓ SHIPPED"><small>YOU + CI/CD</small><b>Ship</b><span>I accept it, CI/CD ships it</span></div>
 </div>
+</div>
+<div class="col" style="gap:16px">
+<div class="receipts">
+<div><b>741</b><span>tests, run in CI on Linux, macOS and Windows</span></div>
+<div><b>13</b><span>audit rounds on one spec before it held</span></div>
+<div><b>4 · 17 · 5</b><span>agents, skills and hooks, one repo, identical on two machines</span></div>
+<div><b>Measured</b><span>model and effort pins checked in the live API request</span></div>
+</div>
+<p class="note">The repo is private, so happy to walk through it. One thing the measuring turned up: a skill’s <code>model:</code> line is ignored, so the tiers are applied by agents, not skills.</p>
 </div>
 <div class="grid3">
 <div class="box"><small>a.</small><h3>Specs are the contract</h3><p>Specs first, code second. A clear spec is what agents implement against and what I review against — no vibes, no drift.</p></div>
-<div class="box"><small>b.</small><h3>Humans own the decisions</h3><p>Agents carry scaffolding, refactors and tests. Architecture, trade-offs and anything touching money or user data go through me.</p></div>
-<div class="box"><small>c.</small><h3>Guardrails that scale to teams</h3><p>Typed contracts, test gates and review checklists — packaged so the whole team can run the same workflow, not just me.</p></div>
+<div class="box"><small>b.</small><h3>Humans own the decisions</h3><p>Agents carry scaffolding, refactors and tests. The reviewer never judges its own work, and acceptance stays mine: no merge, deploy or “Approved” without me.</p></div>
+<div class="box"><small>c.</small><h3>Guardrails that scale to teams</h3><p>Hooks that refuse writes to <code>.env</code> and <code>.git</code>, a spec-gate check, and a self-testing sync that rolls itself back. The whole workflow lives in one repo, so a team can run the same one.</p></div>
 </div>
 </div></section>
 
@@ -446,14 +466,16 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
     steps.forEach(function(s){s.setAttribute("data-label",s.querySelector("small").textContent);});
     /* illustrative timeline: which agent is busy at each stage */
     var plan=[
-      {d:3000,who:{claude:"drafting spec"}},
-      {d:2800,who:{me:"review spec"}},
-      {d:3000,who:{claude:"task split"}},
-      {d:4600,who:{claude:"Flutter · Java",codex:"Node/TS API",grok:"React web"},chips:["claude","claude","codex","grok"]},
-      {d:3400,who:{codex:"AI code review",grok:"tests · lint"}},
-      {d:2800,who:{me:"review diff"}},
-      {d:3000,who:{claude:"opening PR"}}
+      {d:3800,who:{advisor:"2nd opinion",claude:"brief §1–6"}},
+      {d:2800,who:{me:"approving"}},
+      {d:3600,who:{architect:"design·tasks"}},
+      {d:3400,who:{reviewer:"spec review"}},
+      {d:2800,who:{me:"approving"}},
+      {d:5000,who:{claude:"dispatching",builder:"task by task",reviewer:"task review"},chips:["builder","builder","builder"]},
+      {d:3400,who:{reviewer:"audit diff"}},
+      {d:3000,who:{me:"accepting"}}
     ];
+
     var n=-1,t=0;
     var pos={};
     function T(x,y){return "translate("+Math.round(x)+"px,"+Math.round(y)+"px)";}
@@ -479,7 +501,7 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
         if(o<0){r=ag[k].slot.getBoundingClientRect();go(k,r.left-fr.left,r.top-fr.top,0,instant);return;}
         r=steps[i].getBoundingClientRect();
         /* the mascot stands on the card edge, the round bots hover across it */
-        go(k,r.left+r.width/2-fr.left-18+(o-(keys.length-1)/2)*48,r.top-fr.top-(ag[k].bot.classList.contains("mascot")?33:18),o*140,instant);
+        go(k,r.left+r.width/2-fr.left-18+(o-(keys.length-1)/2)*48,r.top-fr.top-(ag[k].bot.classList.contains("mascot")?36:18),o*140,instant);
       });
     }
     function setStep(i){
