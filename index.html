@@ -64,14 +64,23 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .btn.primary{background:var(--accent);color:var(--bg);border-color:var(--accent);font-weight:600}
 .btn.primary:hover{color:var(--bg);transform:translateY(-2px)}
 .nav{position:sticky;top:0;z-index:50;background:rgba(15,16,13,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav .wrap{padding-top:16px;padding-bottom:16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.nav .wrap{padding-top:14px;padding-bottom:14px;display:flex;align-items:center;gap:8px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:600;letter-spacing:-.01em}
 .logo{width:36px;height:36px;border-radius:8px;background:var(--accent);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:"Geist Mono",monospace;font-weight:500;font-size:14px}
-.links{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font-family:"Geist Mono",monospace;font-size:13px}
-.links a{padding:12px 10px;text-decoration:none;color:var(--mute);transition:color .2s}
+.links{display:flex;align-items:center;gap:2px;margin-left:auto;font-family:"Geist Mono",monospace;font-size:13.5px}
+.links a{position:relative;padding:10px 12px;text-decoration:none;color:var(--soft);transition:color .2s}
+.links a::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:1.5px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s}
 .links a:hover,.links a.active{color:var(--accent)}
-.links a.cv{padding:11px 16px;border:1px solid var(--line3);border-radius:999px;color:var(--text);margin-left:6px}
-.links a.cv:hover{border-color:var(--accent);color:var(--accent)}
+.links a.active::after{transform:scaleX(1)}
+.cv{margin-left:10px;padding:10px 18px;border:1px solid var(--line3);border-radius:999px;font-family:"Geist Mono",monospace;font-size:13.5px;color:var(--text);text-decoration:none;white-space:nowrap;transition:border-color .2s,color .2s}
+.cv:hover{border-color:var(--accent);color:var(--accent)}
+.burger{display:none;width:44px;height:44px;margin-right:-10px;padding:0;background:none;border:0;border-radius:10px;color:var(--text);cursor:pointer;align-items:center;justify-content:center}
+.burger i{display:block;width:20px;height:1.5px;background:currentColor;border-radius:2px;position:relative;transition:background .2s}
+.burger i::before,.burger i::after{content:"";position:absolute;left:0;width:20px;height:1.5px;background:currentColor;border-radius:2px;transition:transform .25s}
+.burger i::before{top:-6px}.burger i::after{top:6px}
+.nav.open .burger i{background:transparent}
+.nav.open .burger i::before{transform:translateY(6px) rotate(45deg)}
+.nav.open .burger i::after{transform:translateY(-6px) rotate(-45deg)}
 .hero{padding-top:96px;padding-bottom:72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:56px;align-items:center}
 .hero h1{font-size:clamp(40px,6vw,72px);line-height:1.02;letter-spacing:-.035em}
 .hero p{max-width:560px;font-size:19px;color:var(--soft)}
@@ -80,7 +89,10 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .status{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-family:"Geist Mono",monospace;font-size:13px;color:var(--mute)}
 .who{display:flex;align-items:center;gap:16px}
 .who img{width:64px;height:64px;border-radius:999px;object-fit:cover;border:2px solid var(--line3);flex-shrink:0}
-.who .status{flex-wrap:nowrap}
+.who .id{display:flex;flex-direction:column;gap:6px;min-width:0}
+.who .status{flex-wrap:nowrap;align-items:flex-start}
+.who .dot{margin-top:6px}
+.who .id b{font-size:17px;font-weight:600;letter-spacing:-.01em}
 .dot{flex-shrink:0;width:8px;height:8px;border-radius:999px;background:var(--accent);animation:pulse 2.4s infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(200,241,105,.5)}50%{box-shadow:0 0 0 6px rgba(200,241,105,0)}}
 .term{background:var(--panel);border:1px solid var(--line2);border-radius:16px;overflow:hidden;font-family:"Geist Mono",monospace;font-size:13.5px;line-height:1.75}
@@ -165,22 +177,34 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s cubic-bezier(.2,.7,.3,1)}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.dot,.cursor{animation:none}html{scroll-behavior:auto}}
-@media (max-width:640px){.sec .wrap{padding-top:72px;padding-bottom:64px}.hero{padding-top:56px}.links a:not(.cv){padding:12px 6px}}
+@media (max-width:720px){
+.nav .wrap{padding-top:10px;padding-bottom:10px}
+.burger{display:flex}
+.cv{margin-left:auto;padding:9px 14px}
+.links{display:none;position:absolute;top:100%;left:0;right:0;margin:0;padding:8px 24px 16px;flex-direction:column;align-items:stretch;gap:0;background:var(--bg);border-bottom:1px solid var(--line);font-size:15px}
+.nav.open .links{display:flex}
+.links a{padding:16px 0;border-top:1px solid var(--line)}
+.links a:first-child{border-top:0}
+.links a::after{display:none}
+}
+@media (max-width:640px){.sec .wrap{padding-top:72px;padding-bottom:64px}.hero{padding-top:56px}}
 @media print{*{color:#15130f!important;background:none!important;border-color:#cfc9bd!important;animation:none!important}.nav,.reveal{position:static}.reveal{opacity:1!important;transform:none!important}body{background:#fff!important}}
 </style>
 </head>
 <body>
 <header class="nav"><nav class="wrap" aria-label="Main">
 <a href="#top" class="brand"><span class="logo">TT</span><span>Tony Tran</span></a>
-<div class="links">
+<div class="links" id="menu">
 <a data-nav="harness" href="#harness">Harness</a><a data-nav="work" href="#work">Work</a><a data-nav="experience" href="#experience">Experience</a><a data-nav="stack" href="#stack">Stack</a>
+</div>
 <a class="cv" href="docs/Tuan_Tran_Manh_CV.pdf" download>Download CV</a>
-</div></nav></header>
+<button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><i></i></button>
+</nav></header>
 
 <main>
 <section id="top" class="wrap hero">
 <div class="col" style="gap:28px">
-<div class="who"><img src="assets/profile.jpg" alt="Tuan (Tony) Tran Manh" width="64" height="64"><div class="status"><span class="dot"></span><span>AI Full-Stack Engineer · Ho Chi Minh City · Open to remote</span></div></div>
+<div class="who"><img src="assets/profile.jpg" alt="Tuan (Tony) Tran Manh" width="64" height="64"><div class="id"><b>AI Full-Stack Engineer</b><div class="status"><span class="dot"></span><span>Ho Chi Minh City · Open to remote</span></div></div></div>
 <h1>Agents write the code.<br>I own what ships.</h1>
 <p>Nine years in mobile, now building across the whole product — Flutter apps, Node.js/TypeScript services and web — through a spec-driven agentic harness with a human gate at every decision that matters.</p>
 <div class="row" style="gap:12px"><a class="btn primary" href="#harness">See how I work</a><a class="btn" href="mailto:manhtuan17121994@gmail.com">Get in touch</a></div>
@@ -320,6 +344,12 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
     ov.addEventListener("click",close);document.addEventListener("keydown",esc);
     document.body.appendChild(ov);
   });
+  var nav=document.querySelector(".nav"),burger=nav.querySelector(".burger");
+  function setMenu(o){nav.classList.toggle("open",o);burger.setAttribute("aria-expanded",o);}
+  burger.addEventListener("click",function(){setMenu(!nav.classList.contains("open"));});
+  nav.querySelector(".links").addEventListener("click",function(e){if(e.target.closest("a"))setMenu(false);});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")setMenu(false);});
+  window.addEventListener("resize",function(){if(window.innerWidth>720)setMenu(false);});
   var links=[].slice.call(document.querySelectorAll("[data-nav]")),map={};
   links.forEach(function(a){map[a.getAttribute("data-nav")]=a;});
   if("IntersectionObserver" in window){
