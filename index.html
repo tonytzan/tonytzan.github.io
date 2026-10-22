@@ -93,6 +93,28 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .who .id{display:flex;flex-direction:column;gap:2px;min-width:0}
 .who .id b{font-size:19px;font-weight:600;letter-spacing:-.015em;line-height:1.3}
 .who .id span{font-size:15px;color:var(--soft)}
+.who .meta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;width:100%}
+.gag{display:none;position:relative;flex:1 1 290px;min-width:290px;height:44px;overflow:hidden}
+.gag.on{display:block}
+.gag::after{content:"";position:absolute;left:0;right:0;bottom:3px;border-top:1px dashed var(--line2)}
+.gag .cl{position:absolute;left:0;bottom:5px;width:40px;height:29px;z-index:1;transform:translateX(-64px);transition:transform 1.3s cubic-bezier(.4,0,.25,1)}
+.gag .cl.here{transform:none}
+.gag svg.mascot{display:block;width:40px;height:29px;overflow:visible;transition:transform .3s}
+.gag .eyes-work{display:none}
+.gag .cl.proud .eyes-work{display:inline}
+.gag .cl.proud .eyes-dot{display:none}
+.gag .cl.moving svg{animation:hop .3s ease-in-out infinite;rotate:calc(var(--dir,1)*7deg)}
+.gag .cl.moving .l1,.gag .cl.moving .l3,.gag .cl.moving .ar{animation:step .3s steps(1,end) infinite}
+.gag .cl.moving .l2,.gag .cl.moving .l4,.gag .cl.moving .al{animation:step .3s steps(1,end) -.15s infinite}
+.gag .cl.sad svg{transform:translateY(3px)}
+.gag .cl.sad .al,.gag .cl.sad .ar{transform:translateY(1px)}
+.gag .cl.happy svg{animation:hop .35s ease-in-out 4}
+.say{position:absolute;left:54px;top:48%;display:flex;align-items:center;gap:8px;max-width:calc(100% - 56px);padding:6px 12px;border:1px solid var(--line3);border-radius:12px;background:var(--panel);font-family:"Geist Mono",monospace;font-size:12.5px;line-height:1.3;color:var(--soft);white-space:nowrap;opacity:0;transform:translateY(-50%) scale(.85);transform-origin:left center;transition:opacity .25s,transform .25s;pointer-events:none}
+.say.show{opacity:1;transform:translateY(-50%)}
+.say::before{content:"";position:absolute;left:-5px;top:50%;width:8px;height:8px;margin-top:-4px;background:inherit;border-left:1px solid;border-bottom:1px solid;border-color:inherit;transform:rotate(45deg)}
+.say.c{border-color:rgba(232,149,107,.6);color:var(--text)}
+.say.t{border-color:rgba(200,241,105,.5)}
+.say img{width:18px;height:18px;border-radius:99px;object-fit:cover}
 .avail{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid rgba(200,241,105,.35);border-radius:999px;background:rgba(200,241,105,.07);font-family:"Geist Mono",monospace;font-size:13px;color:var(--accent);white-space:nowrap}
 .dot{flex-shrink:0;width:8px;height:8px;border-radius:999px;background:var(--accent);animation:pulse 2.4s infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(200,241,105,.5)}50%{box-shadow:0 0 0 6px rgba(200,241,105,0)}}
@@ -244,7 +266,7 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 @media (max-width:640px){.ag{padding:8px 10px 8px 8px;column-gap:9px;font-size:12px}}
 @media (max-width:400px){.who .id b{font-size:17px}}
 @media (max-width:640px){.sec .wrap{padding-top:72px;padding-bottom:64px}.hero{padding-top:56px}}
-@media print{.agents,.bot{display:none}.step{opacity:1!important}*{color:#15130f!important;background:none!important;border-color:#cfc9bd!important;animation:none!important}.nav,.reveal{position:static}.reveal{opacity:1!important;transform:none!important}body{background:#fff!important}}
+@media print{.agents,.bot,.gag{display:none!important}.step{opacity:1!important}*{color:#15130f!important;background:none!important;border-color:#cfc9bd!important;animation:none!important}.nav,.reveal{position:static}.reveal{opacity:1!important;transform:none!important}body{background:#fff!important}}
 </style>
 </head>
 <body>
@@ -260,7 +282,7 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 <main>
 <section id="top" class="wrap hero">
 <div class="col" style="gap:28px">
-<div class="who"><div class="person"><img src="assets/profile.jpg" alt="Tuan (Tony) Tran Manh" width="72" height="72"><div class="id"><b>Tuan (Tony) Tran Manh</b><span>AI Full-Stack Engineer</span></div></div><span class="avail"><span class="dot"></span>Ho Chi Minh City · Open to remote</span></div>
+<div class="who"><div class="person"><img src="assets/profile.jpg" alt="Tuan (Tony) Tran Manh" width="72" height="72"><div class="id"><b>Tuan (Tony) Tran Manh</b><span>AI Full-Stack Engineer</span></div></div><div class="meta"><span class="avail"><span class="dot"></span>Ho Chi Minh City · Open to remote</span><div class="gag" aria-hidden="true"><div class="cl"><svg class="mascot" viewBox="0 0 11 8" shape-rendering="crispEdges"><g fill="#CC6143"><rect x="1" y="0" width="9" height="6"/><rect class="al" x="0" y="3" width="1" height="2"/><rect class="ar" x="10" y="3" width="1" height="2"/><rect class="l1" x="2" y="6" width="1" height="2"/><rect class="l2" x="4" y="6" width="1" height="2"/><rect class="l3" x="6" y="6" width="1" height="2"/><rect class="l4" x="8" y="6" width="1" height="2"/></g><g class="eyes-dot" fill="#15130f"><rect x="3" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/></g><g class="eyes-work" fill="#15130f"><rect x="2" y="1" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="8" y="1" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/></g></svg></div><div class="say c"></div><div class="say t"><img src="assets/profile.jpg" alt="" width="18" height="18"><span></span></div></div></div></div>
 <h1>Agents write the code.<br>I own what ships.</h1>
 <p>Nine years in mobile, now building across the whole product — Flutter apps, Node.js/TypeScript services and web — through a spec-driven agentic harness with a human gate at every decision that matters.</p>
 <div class="row" style="gap:12px"><a class="btn primary" href="#harness">See how I work</a><a class="btn" href="mailto:manhtuan17121994@gmail.com">Get in touch</a></div>
@@ -495,6 +517,47 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
       if(es[0].isIntersecting){flow.classList.remove("paused");if(!t)run();}
       else{flow.classList.add("paused");clearTimeout(t);t=0;}
     },{threshold:.25}).observe(flow);
+  })();
+  (function(){
+    var g=document.querySelector(".gag");
+    if(!g||matchMedia("(prefers-reduced-motion:reduce)").matches||!("IntersectionObserver" in window))return;
+    g.classList.add("on");
+    var cl=g.querySelector(".cl"),say=g.querySelector(".say.c"),re=g.querySelector(".say.t"),reTxt=re.querySelector("span");
+    /* short dev-joke scenes: Claude says something questionable, I answer, Claude reacts */
+    var scenes=[
+      {say:"git push --force?",re:"absolutely not.",proud:0,mood:"sad"},
+      {say:"all tests pass!",re:"you deleted them.",proud:1,mood:"sad"},
+      {say:"skip the review gate?",re:"nice try.",proud:0,mood:"sad"},
+      {say:"rm -rf node_modules?",re:"...fine, go ahead.",proud:0,mood:"happy"}
+    ];
+    var tok=0,i=0;
+    function wait(ms){return new Promise(function(r){setTimeout(r,ms);});}
+    function reset(){
+      cl.style.transition="none";cl.className="cl";void cl.offsetWidth;cl.style.transition="";
+      say.classList.remove("show");re.classList.remove("show");
+    }
+    async function loop(my){
+      while(my===tok){
+        var sc=scenes[i++%scenes.length];
+        say.textContent=sc.say;reTxt.textContent=sc.re;
+        reset();
+        cl.style.setProperty("--dir",1);cl.classList.add("here","moving");
+        await wait(1400);if(my!==tok)return;
+        cl.classList.remove("moving");cl.classList.toggle("proud",!!sc.proud);say.classList.add("show");
+        await wait(2700);if(my!==tok)return;
+        say.classList.remove("show");await wait(350);if(my!==tok)return;
+        cl.classList.remove("proud");cl.classList.add(sc.mood);re.classList.add("show");
+        await wait(3000);if(my!==tok)return;
+        re.classList.remove("show");await wait(450);if(my!==tok)return;
+        cl.classList.remove("sad","happy");cl.style.setProperty("--dir",-1);cl.classList.remove("here");cl.classList.add("moving");
+        await wait(1400);if(my!==tok)return;
+        cl.classList.remove("moving");
+        await wait(1600);
+      }
+    }
+    new IntersectionObserver(function(es){
+      if(es[0].isIntersecting){loop(++tok);}else{tok++;reset();}
+    },{threshold:.3}).observe(g);
   })();
   var nav=document.querySelector(".nav"),burger=nav.querySelector(".burger");
   function setMenu(o){nav.classList.toggle("open",o);burger.setAttribute("aria-expanded",o);}
