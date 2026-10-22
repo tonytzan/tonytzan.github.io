@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tuan (Tony) Tran Manh — AI Full-Stack Engineer</title>
-<meta name="description" content="AI Full-Stack Engineer with 9 years in mobile. Flutter, Node.js/TypeScript and web, shipped through a spec-driven agentic harness. CleverCards, Arki Finance, Shipeace.">
+<title>Tuan (Tony) Tran Manh — Senior Software Engineer (AI-Native)</title>
+<meta name="description" content="Senior Software Engineer (AI-Native) with 9 years in mobile. Flutter, Node.js/TypeScript and web, shipped through a spec-driven agentic harness. CleverCards, Arki Finance, Shipeace.">
 <link rel="canonical" href="https://tonytran.me/">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="theme-color" content="#0F100D">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tonytran.me/">
-<meta property="og:title" content="Tuan (Tony) Tran Manh — AI Full-Stack Engineer">
-<meta property="og:description" content="AI Full-Stack Engineer with 9 years in mobile. Flutter, Node.js/TypeScript and web, shipped through a spec-driven agentic harness. CleverCards, Arki Finance, Shipeace.">
+<meta property="og:title" content="Tuan (Tony) Tran Manh — Senior Software Engineer (AI-Native)">
+<meta property="og:description" content="Senior Software Engineer (AI-Native) with 9 years in mobile. Flutter, Node.js/TypeScript and web, shipped through a spec-driven agentic harness. CleverCards, Arki Finance, Shipeace.">
 <meta property="og:image" content="https://tonytran.me/assets/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tuan (Tony) Tran Manh — AI Full-Stack Engineer">
-<meta name="twitter:description" content="AI Full-Stack Engineer with 9 years in mobile. Flutter, Node.js/TypeScript and web, shipped through a spec-driven agentic harness. CleverCards, Arki Finance, Shipeace.">
+<meta name="twitter:title" content="Tuan (Tony) Tran Manh — Senior Software Engineer (AI-Native)">
+<meta name="twitter:description" content="Senior Software Engineer (AI-Native) with 9 years in mobile. Flutter, Node.js/TypeScript and web, shipped through a spec-driven agentic harness. CleverCards, Arki Finance, Shipeace.">
 <meta name="twitter:image" content="https://tonytran.me/assets/og-banner.png">
 <script type="application/ld+json">
 {
@@ -26,7 +26,7 @@
   "@type": "Person",
   "name": "Tuan Tran Manh",
   "alternateName": "Tony Tran",
-  "jobTitle": "AI Full-Stack Engineer",
+  "jobTitle": "Senior Software Engineer (AI-Native)",
   "url": "https://tonytran.me/",
   "image": "https://tonytran.me/assets/profile.jpg",
   "email": "mailto:manhtuan17121994@gmail.com",
@@ -64,23 +64,58 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .btn.primary{background:var(--accent);color:var(--bg);border-color:var(--accent);font-weight:600}
 .btn.primary:hover{color:var(--bg);transform:translateY(-2px)}
 .nav{position:sticky;top:0;z-index:50;background:rgba(15,16,13,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav .wrap{padding-top:16px;padding-bottom:16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.nav .wrap{padding-top:14px;padding-bottom:14px;display:flex;align-items:center;gap:8px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:600;letter-spacing:-.01em}
 .logo{width:36px;height:36px;border-radius:8px;background:var(--accent);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:"Geist Mono",monospace;font-weight:500;font-size:14px}
-.links{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font-family:"Geist Mono",monospace;font-size:13px}
-.links a{padding:12px 10px;text-decoration:none;color:var(--mute);transition:color .2s}
+.links{display:flex;align-items:center;gap:2px;margin-left:auto;font-family:"Geist Mono",monospace;font-size:13.5px}
+.links a{position:relative;padding:10px 12px;text-decoration:none;color:var(--soft);transition:color .2s}
+.links a::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:1.5px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s}
 .links a:hover,.links a.active{color:var(--accent)}
-.links a.cv{padding:11px 16px;border:1px solid var(--line3);border-radius:999px;color:var(--text);margin-left:6px}
-.links a.cv:hover{border-color:var(--accent);color:var(--accent)}
+.links a.active::after{transform:scaleX(1)}
+.cv{margin-left:10px;padding:10px 18px;border:1px solid var(--line3);border-radius:999px;font-family:"Geist Mono",monospace;font-size:13.5px;color:var(--text);text-decoration:none;white-space:nowrap;transition:border-color .2s,color .2s}
+.cv:hover{border-color:var(--accent);color:var(--accent)}
+.burger{display:none;width:44px;height:44px;margin-right:-10px;padding:0;background:none;border:0;border-radius:10px;color:var(--text);cursor:pointer;align-items:center;justify-content:center}
+.burger i{display:block;width:20px;height:1.5px;background:currentColor;border-radius:2px;position:relative;transition:background .2s}
+.burger i::before,.burger i::after{content:"";position:absolute;left:0;width:20px;height:1.5px;background:currentColor;border-radius:2px;transition:transform .25s}
+.burger i::before{top:-6px}.burger i::after{top:6px}
+.nav.open .burger i{background:transparent}
+.nav.open .burger i::before{transform:translateY(6px) rotate(45deg)}
+.nav.open .burger i::after{transform:translateY(-6px) rotate(-45deg)}
 .hero{padding-top:96px;padding-bottom:72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:56px;align-items:center}
 .hero h1{font-size:clamp(40px,6vw,72px);line-height:1.02;letter-spacing:-.035em}
 .hero p{max-width:560px;font-size:19px;color:var(--soft)}
 .col{display:flex;flex-direction:column}
 .row{display:flex;flex-wrap:wrap}
 .status{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-family:"Geist Mono",monospace;font-size:13px;color:var(--mute)}
-.who{display:flex;align-items:center;gap:16px}
-.who img{width:64px;height:64px;border-radius:999px;object-fit:cover;border:2px solid var(--line3);flex-shrink:0}
-.who .status{flex-wrap:nowrap}
+.who{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.person{display:flex;align-items:center;gap:16px;min-width:0}
+.who img{width:72px;height:72px;border-radius:999px;object-fit:cover;border:2px solid var(--line3);flex-shrink:0}
+.who .id{display:flex;flex-direction:column;gap:2px;min-width:0}
+.who .id b{font-size:19px;font-weight:600;letter-spacing:-.015em;line-height:1.3}
+.who .id span{font-size:15px;color:var(--soft)}
+.who .meta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;width:100%}
+.gag{display:none;position:relative;flex:1 1 290px;min-width:290px;height:44px;overflow:hidden}
+.gag.on{display:block}
+.gag::after{content:"";position:absolute;left:0;right:0;bottom:3px;border-top:1px dashed var(--line2)}
+.gag .cl{position:absolute;left:0;bottom:5px;width:40px;height:29px;z-index:1;transform:translateX(-64px);transition:transform 1.3s cubic-bezier(.4,0,.25,1)}
+.gag .cl.here{transform:none}
+.gag svg.mascot{display:block;width:40px;height:29px;overflow:visible;transition:transform .3s}
+.gag .eyes-work{display:none}
+.gag .cl.proud .eyes-work{display:inline}
+.gag .cl.proud .eyes-dot{display:none}
+.gag .cl.moving svg{animation:hop .3s ease-in-out infinite;rotate:calc(var(--dir,1)*7deg)}
+.gag .cl.moving .l1,.gag .cl.moving .l3,.gag .cl.moving .ar{animation:step .3s steps(1,end) infinite}
+.gag .cl.moving .l2,.gag .cl.moving .l4,.gag .cl.moving .al{animation:step .3s steps(1,end) -.15s infinite}
+.gag .cl.sad svg{transform:translateY(3px)}
+.gag .cl.sad .al,.gag .cl.sad .ar{transform:translateY(1px)}
+.gag .cl.happy svg{animation:hop .35s ease-in-out 4}
+.say{position:absolute;left:54px;top:48%;display:flex;align-items:center;gap:8px;max-width:calc(100% - 56px);padding:6px 12px;border:1px solid var(--line3);border-radius:12px;background:var(--panel);font-family:"Geist Mono",monospace;font-size:12.5px;line-height:1.3;color:var(--soft);white-space:nowrap;opacity:0;transform:translateY(-50%) scale(.85);transform-origin:left center;transition:opacity .25s,transform .25s;pointer-events:none}
+.say.show{opacity:1;transform:translateY(-50%)}
+.say::before{content:"";position:absolute;left:-5px;top:50%;width:8px;height:8px;margin-top:-4px;background:inherit;border-left:1px solid;border-bottom:1px solid;border-color:inherit;transform:rotate(45deg)}
+.say.c{border-color:rgba(232,149,107,.6);color:var(--text)}
+.say.t{border-color:rgba(200,241,105,.5)}
+.say img{width:18px;height:18px;border-radius:99px;object-fit:cover}
+.avail{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid rgba(200,241,105,.35);border-radius:999px;background:rgba(200,241,105,.07);font-family:"Geist Mono",monospace;font-size:13px;color:var(--accent);white-space:nowrap}
 .dot{flex-shrink:0;width:8px;height:8px;border-radius:999px;background:var(--accent);animation:pulse 2.4s infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(200,241,105,.5)}50%{box-shadow:0 0 0 6px rgba(200,241,105,0)}}
 .term{background:var(--panel);border:1px solid var(--line2);border-radius:16px;overflow:hidden;font-family:"Geist Mono",monospace;font-size:13.5px;line-height:1.75}
@@ -101,6 +136,66 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .step span{font-size:14px;color:var(--mute)}
 .step.gate{background:none;border:1.5px dashed var(--gate)}
 .step.gate small{color:var(--gate)}
+.flow{position:relative;display:flex;flex-direction:column;gap:40px}
+.flow .pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:34px 14px}
+.flow .step{flex:none}
+.receipts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:14px}
+.receipts div{padding:22px;border:1px solid var(--line2);border-radius:16px;background:var(--panel);display:flex;flex-direction:column;gap:6px}
+.receipts b{font-size:30px;font-weight:600;letter-spacing:-.02em;line-height:1.15}
+.receipts span{font-size:14px;color:var(--mute)}
+.note{max-width:760px;font-size:14px;color:var(--mute)}
+.note code,.box code{font-family:"Geist Mono",monospace;font-size:.9em;color:var(--soft)}
+.agents{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:10px;font-family:"Geist Mono",monospace;font-size:12.5px}
+.ag{--c:var(--dim);display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:center;padding:10px 14px 10px 10px;border:1px solid var(--line2);border-radius:14px;background:var(--panel);transition:border-color .3s,box-shadow .3s}
+.slot{grid-row:1/3;width:36px;height:36px;border-radius:50%;border:1.5px dashed var(--line3);background:var(--panel2);display:grid;place-items:center;overflow:hidden}
+.slot svg,.bot svg{width:20px;height:20px;stroke:var(--c);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.slot img,.bot img{width:100%;height:100%;object-fit:cover}
+.flow.live .slot>*{opacity:0}
+.ag b{font-weight:500;color:var(--soft)}
+.ag em{font-style:normal;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .3s}
+.ag.on{border-color:var(--c);box-shadow:0 0 28px -10px var(--c)}
+.ag.on em{color:var(--text)}
+.bot{position:absolute;left:0;top:0;width:36px;height:36px;z-index:6;pointer-events:none;opacity:0;transition:opacity .4s}
+.flow.live .bot{opacity:1}
+.bot .in{position:relative;width:100%;height:100%;border-radius:50%;border:1.5px solid var(--c);background:var(--panel2);display:grid;place-items:center;overflow:hidden;box-shadow:0 8px 18px -8px #000;opacity:.7;transition:opacity .3s}
+.bot.busy .in{opacity:1;animation:bob 1.6s ease-in-out infinite}
+.bot.busy::after{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px solid var(--c);animation:ring 1.5s ease-out infinite}
+.bot.ok::before{content:"✓";position:absolute;right:-5px;top:-5px;width:17px;height:17px;border-radius:50%;background:var(--accent);color:var(--bg);font:600 11px/17px "Geist Mono",monospace;text-align:center;z-index:2}
+@keyframes bob{50%{transform:translateY(-4px)}}
+@keyframes ring{to{transform:scale(1.9);opacity:0}}
+.slot svg.mascot,.bot svg.mascot{stroke:none;stroke-width:0;color:var(--m,#CC6143)}
+.slot svg.mascot{width:28px;height:25px}
+.bot svg.mascot{width:40px;height:36px;overflow:visible}
+.bot.mascot .in{background:none;border:0;box-shadow:none;overflow:visible;border-radius:0}
+.bot.mascot.busy::after{display:none}
+.eyes-work{display:none}
+.bot.busy:not(.moving) .eyes-work{display:inline}
+.bot.busy:not(.moving) .eyes-dot{display:none}
+.bot.moving .in{animation:hop .3s ease-in-out infinite;rotate:calc(var(--dir,1)*7deg)}
+@keyframes hop{50%{transform:translateY(-3px)}}
+@keyframes step{0%{transform:translateY(0)}50%{transform:translateY(-1px)}}
+.bot.moving .l1,.bot.moving .l3,.bot.moving .ar{animation:step .3s steps(1,end) infinite}
+.bot.moving .l2,.bot.moving .l4,.bot.moving .al{animation:step .3s steps(1,end) -.15s infinite}
+.bot.busy:not(.moving) .al{animation:step .5s steps(1,end) infinite}
+.bot.busy:not(.moving) .ar{animation:step .5s steps(1,end) -.25s infinite}
+.c-claude{--c:#E8956B;--m:#CC6143}.c-advisor{--c:#C4A2FF;--m:#9B7BE0}.c-architect{--c:#6CB6FF;--m:#4A90D9}.c-builder{--c:#5FD3B8;--m:#3FB89A}.c-reviewer{--c:#FF8FB1;--m:#E0668F}.c-me{--c:var(--gate)}
+.step{position:relative;overflow:hidden;transition:opacity .4s,border-color .3s,background .3s}
+.step::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left}
+.step.gate::after{background:var(--gate)}
+.step.ship::after{background:var(--bg)}
+.step.active::after{animation:fill var(--d,2.5s) linear forwards}
+.step.done::after{transform:scaleX(1);opacity:.4}
+@keyframes fill{to{transform:scaleX(1)}}
+.flow.run .step:not(.active):not(.done){opacity:.42}
+.flow.run .step.ship:not(.active):not(.done){opacity:.6}
+.step.active{border-color:var(--accent)}
+.step.gate.active{border-color:var(--gate);background:rgba(255,177,74,.07)}
+.step.done{border-color:rgba(200,241,105,.45)}
+.step.gate.done{border-style:solid}
+.step.gate.done small{color:var(--accent)}
+.chips span{transition:background .3s,color .3s}
+.chips span.on{background:var(--c);color:#15130f}
+.flow.paused *,.flow.paused *::before,.flow.paused *::after{animation-play-state:paused!important}
 .step.ship{background:var(--accent);border-color:var(--accent);color:var(--bg)}
 .step.ship small{color:#2E3A12}.step.ship span{color:#26300E}
 .chips{display:flex;flex-wrap:wrap;gap:6px;font-family:"Geist Mono",monospace;font-size:12px}
@@ -114,7 +209,20 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .work{border-radius:20px;background:var(--panel);border:1px solid var(--line2);overflow:hidden;display:flex;flex-direction:column}
 .work.wide{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}
 .shot{background:var(--panel2);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;height:300px;padding-top:28px;cursor:zoom-in}
-.shot img{height:100%;width:auto;max-width:none;object-fit:cover;object-position:top;border-radius:14px 14px 0 0}
+.shot{position:relative;background:radial-gradient(90% 85% at 50% 100%,var(--tint,transparent),transparent 72%),var(--panel2)}
+.shot img{height:100%;width:auto;max-width:none;object-fit:cover;object-position:top;border-radius:14px 14px 0 0;box-shadow:0 0 0 1px rgba(255,255,255,.10),0 22px 40px -18px #000}
+.shot.duo{gap:14px;padding-left:20px;padding-right:20px}
+.shot.duo .web{flex:1 1 0;min-width:0;width:0;object-position:left top}
+.shot.duo .phone{flex:none}
+@media (max-width:700px){.shot.duo .web{display:none}}
+.shot::after{content:"Zoom";position:absolute;right:12px;top:12px;padding:4px 10px;border:1px solid var(--line3);border-radius:99px;background:rgba(15,16,13,.72);font-family:"Geist Mono",monospace;font-size:11px;color:var(--soft);opacity:0;transition:opacity .2s;pointer-events:none}
+.shot:hover::after{opacity:1}
+@media (hover:none){.shot::after{opacity:.85}}
+.rl{margin-top:-6px;font-family:"Geist Mono",monospace;font-size:12.5px;line-height:1.5;color:var(--dim)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:10px}
+.kpis div{padding:12px 14px;border:1px solid var(--line2);border-radius:12px;background:rgba(255,255,255,.02);display:flex;flex-direction:column;gap:2px}
+.kpis b{font-size:22px;font-weight:600;letter-spacing:-.02em;line-height:1.2;color:var(--accent)}
+.kpis span{font-size:13px;color:var(--mute)}
 .work.wide .shot{flex:1 1 420px;height:auto;min-height:320px;padding:28px 28px 0;gap:20px}
 .work.wide .shot img{height:auto;max-height:340px;max-width:100%}
 .info{padding:28px;display:flex;flex-direction:column;gap:14px;flex:1}
@@ -165,36 +273,51 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s cubic-bezier(.2,.7,.3,1)}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.dot,.cursor{animation:none}html{scroll-behavior:auto}}
-@media (max-width:640px){.sec .wrap{padding-top:72px;padding-bottom:64px}.hero{padding-top:56px}.links a:not(.cv){padding:12px 6px}}
-@media print{*{color:#15130f!important;background:none!important;border-color:#cfc9bd!important;animation:none!important}.nav,.reveal{position:static}.reveal{opacity:1!important;transform:none!important}body{background:#fff!important}}
+@media (max-width:720px){
+.nav .wrap{padding-top:10px;padding-bottom:10px}
+.burger{display:flex}
+.cv{margin-left:auto;padding:9px 14px}
+.links{display:none;position:absolute;top:100%;left:0;right:0;margin:0;padding:8px 24px 16px;flex-direction:column;align-items:stretch;gap:0;background:var(--bg);border-bottom:1px solid var(--line);font-size:15px}
+.nav.open .links{display:flex}
+.links a{padding:16px 0;border-top:1px solid var(--line)}
+.links a:first-child{border-top:0}
+.links a::after{display:none}
+}
+@media (max-width:700px){.flow .pipe{grid-template-columns:repeat(2,1fr);gap:34px 10px}}
+@media (max-width:640px){.ag{padding:8px 10px 8px 8px;column-gap:9px;font-size:12px}}
+@media (max-width:400px){.who .id b{font-size:17px}}
+@media (max-width:640px){.sec .wrap{padding-top:72px;padding-bottom:64px}.hero{padding-top:56px}}
+@media print{.agents,.bot,.gag{display:none!important}.step{opacity:1!important}*{color:#15130f!important;background:none!important;border-color:#cfc9bd!important;animation:none!important}.nav,.reveal{position:static}.reveal{opacity:1!important;transform:none!important}body{background:#fff!important}}
 </style>
 </head>
 <body>
 <header class="nav"><nav class="wrap" aria-label="Main">
 <a href="#top" class="brand"><span class="logo">TT</span><span>Tony Tran</span></a>
-<div class="links">
+<div class="links" id="menu">
 <a data-nav="harness" href="#harness">Harness</a><a data-nav="work" href="#work">Work</a><a data-nav="experience" href="#experience">Experience</a><a data-nav="stack" href="#stack">Stack</a>
+</div>
 <a class="cv" href="docs/Tuan_Tran_Manh_CV.pdf" download>Download CV</a>
-</div></nav></header>
+<button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><i></i></button>
+</nav></header>
 
 <main>
 <section id="top" class="wrap hero">
 <div class="col" style="gap:28px">
-<div class="who"><img src="assets/profile.jpg" alt="Tuan (Tony) Tran Manh" width="64" height="64"><div class="status"><span class="dot"></span><span>AI Full-Stack Engineer · Ho Chi Minh City · Open to remote</span></div></div>
+<div class="who"><div class="person"><img src="assets/profile.jpg" alt="Tuan (Tony) Tran Manh" width="72" height="72"><div class="id"><b>Tuan (Tony) Tran Manh</b><span>Senior Software Engineer (AI-Native)</span></div></div><div class="meta"><span class="avail"><span class="dot"></span>Ho Chi Minh City · Open to remote</span><div class="gag" aria-hidden="true"><div class="cl"><svg class="mascot" viewBox="0 0 11 8" shape-rendering="crispEdges"><g fill="#CC6143"><rect x="1" y="0" width="9" height="6"/><rect class="al" x="0" y="3" width="1" height="2"/><rect class="ar" x="10" y="3" width="1" height="2"/><rect class="l1" x="2" y="6" width="1" height="2"/><rect class="l2" x="4" y="6" width="1" height="2"/><rect class="l3" x="6" y="6" width="1" height="2"/><rect class="l4" x="8" y="6" width="1" height="2"/></g><g class="eyes-dot" fill="#15130f"><rect x="3" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/></g><g class="eyes-work" fill="#15130f"><rect x="2" y="1" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="8" y="1" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/></g></svg></div><div class="say c"></div><div class="say t"><img src="assets/profile.jpg" alt="" width="18" height="18"><span></span></div></div></div></div>
 <h1>Agents write the code.<br>I own what ships.</h1>
 <p>Nine years in mobile, now building across the whole product — Flutter apps, Node.js/TypeScript services and web — through a spec-driven agentic harness with a human gate at every decision that matters.</p>
 <div class="row" style="gap:12px"><a class="btn primary" href="#harness">See how I work</a><a class="btn" href="mailto:manhtuan17121994@gmail.com">Get in touch</a></div>
 </div>
 <div class="term" aria-label="Feature-run pipeline">
 <div class="bar"><span>harness / feature-run</span><span>mobile · api · web</span></div>
-<div class="body"><span class="n">01</span>  <span class="a">spec</span>     PM design → spec + acceptance criteria
-<span class="g"><span class="n">02</span>  ◆ gate   you approve the spec</span>
-<span class="n">03</span>  <span class="a">plan</span>     agent splits work by layer
-<span class="g"><span class="n">04</span>  ◆ gate   you approve the plan</span>
-<span class="n">05</span>  <span class="a">build</span>    flutter · java ∥ node api ∥ react
-<span class="n">06</span>  <span class="a">verify</span>   tests · lint · AI review
-<span class="g"><span class="n">07</span>  ◆ gate   you review the diff</span>
-<span class="n">08</span>  <span class="a">ship</span>     CI/CD → stores · GCP · AWS · Vercel
+<div class="body"><span class="n">01</span>  <span class="a">brief</span>    problem, outcome, evidence
+<span class="g"><span class="n">02</span>  ◆ gate   you approve the brief</span>
+<span class="n">03</span>  <span class="a">design</span>   requirements · design · tasks
+<span class="n">04</span>  <span class="a">review</span>   fresh-context spec review
+<span class="g"><span class="n">05</span>  ◆ gate   you approve the spec</span>
+<span class="n">06</span>  <span class="a">build</span>    one builder per task
+<span class="n">07</span>  <span class="a">audit</span>    diff vs design · green / yellow / red
+<span class="g"><span class="n">08</span>  ◆ gate   you accept → CI/CD ships</span>
 
 <span class="cursor"></span></div>
 </div>
@@ -211,67 +334,93 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 <section id="harness" class="sec reveal"><div class="wrap">
 <div class="head"><span class="eyebrow">01 — The harness</span>
 <h2>One engineer across three layers, because the agents carry the volume.</h2>
-<p class="lead">I run feature work through a pipeline of AI coding agents inside Claude Code — custom slash commands for each SDLC stage. Agents draft, implement and test. I set the spec, approve the plan and review every diff before it ships.</p></div>
+<p class="lead">I run feature work through a team of Claude Code subagents — an advisor, an architect, builders and a reviewer, each pinned to the model and effort its job needs — driven by slash commands for every stage of a spec lifecycle. They draft, build and audit. I approve the brief, approve the spec and accept what ships.</p></div>
+<div class="flow">
+<div class="agents" aria-hidden="true">
+<div class="ag c-claude" data-ag="claude"><span class="slot"><svg class="mascot" viewBox="0 -2 11 10" shape-rendering="crispEdges"><g fill="currentColor"><rect x="1" y="0" width="9" height="6"/><rect class="al" x="0" y="3" width="1" height="2"/><rect class="ar" x="10" y="3" width="1" height="2"/><rect class="l1" x="2" y="6" width="1" height="2"/><rect class="l2" x="4" y="6" width="1" height="2"/><rect class="l3" x="6" y="6" width="1" height="2"/><rect class="l4" x="8" y="6" width="1" height="2"/></g><g class="eyes-dot" fill="#15130f"><rect x="3" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/></g><g class="eyes-work" fill="#15130f"><rect x="2" y="1" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="8" y="1" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/></g></svg></span><b>Claude Code</b><em class="st">Sonnet med</em></div>
+<div class="ag c-advisor" data-ag="advisor"><span class="slot"><svg class="mascot" viewBox="0 -2 11 10" shape-rendering="crispEdges"><g fill="currentColor"><rect x="1" y="0" width="9" height="6"/><rect class="al" x="0" y="3" width="1" height="2"/><rect class="ar" x="10" y="3" width="1" height="2"/><rect class="l1" x="2" y="6" width="1" height="2"/><rect class="l2" x="4" y="6" width="1" height="2"/><rect class="l3" x="6" y="6" width="1" height="2"/><rect class="l4" x="8" y="6" width="1" height="2"/></g><g fill="#F5C84C"><rect x="2" y="-2" width="1" height="1"/><rect x="5" y="-2" width="1" height="1"/><rect x="8" y="-2" width="1" height="1"/><rect x="2" y="-1" width="7" height="1"/></g><g class="eyes-dot" fill="#15130f"><rect x="3" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/></g><g class="eyes-work" fill="#15130f"><rect x="2" y="1" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="8" y="1" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/></g></svg></span><b>Advisor</b><em class="st">Fable xhigh</em></div>
+<div class="ag c-architect" data-ag="architect"><span class="slot"><svg class="mascot" viewBox="0 -2 11 10" shape-rendering="crispEdges"><g fill="currentColor"><rect x="1" y="0" width="9" height="6"/><rect class="al" x="0" y="3" width="1" height="2"/><rect class="ar" x="10" y="3" width="1" height="2"/><rect class="l1" x="2" y="6" width="1" height="2"/><rect class="l2" x="4" y="6" width="1" height="2"/><rect class="l3" x="6" y="6" width="1" height="2"/><rect class="l4" x="8" y="6" width="1" height="2"/></g><g fill="#BFE0FF"><rect x="5" y="-2" width="1" height="1"/><rect x="4" y="-1" width="3" height="1"/></g><g class="eyes-dot" fill="#15130f"><rect x="3" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/></g><g class="eyes-work" fill="#15130f"><rect x="2" y="1" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="8" y="1" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/></g></svg></span><b>Architect</b><em class="st">Opus xhigh</em></div>
+<div class="ag c-builder" data-ag="builder"><span class="slot"><svg class="mascot" viewBox="0 -2 11 10" shape-rendering="crispEdges"><g fill="currentColor"><rect x="1" y="0" width="9" height="6"/><rect class="al" x="0" y="3" width="1" height="2"/><rect class="ar" x="10" y="3" width="1" height="2"/><rect class="l1" x="2" y="6" width="1" height="2"/><rect class="l2" x="4" y="6" width="1" height="2"/><rect class="l3" x="6" y="6" width="1" height="2"/><rect class="l4" x="8" y="6" width="1" height="2"/></g><g fill="#F5C84C"><rect x="3" y="-2" width="5" height="1"/><rect x="2" y="-1" width="7" height="1"/></g><g class="eyes-dot" fill="#15130f"><rect x="3" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/></g><g class="eyes-work" fill="#15130f"><rect x="2" y="1" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="8" y="1" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/></g></svg></span><b>Builder</b><em class="st">Sonnet high</em></div>
+<div class="ag c-reviewer" data-ag="reviewer"><span class="slot"><svg class="mascot" viewBox="0 -2 11 10" shape-rendering="crispEdges"><g fill="currentColor"><rect x="1" y="0" width="9" height="6"/><rect class="al" x="0" y="3" width="1" height="2"/><rect class="ar" x="10" y="3" width="1" height="2"/><rect class="l1" x="2" y="6" width="1" height="2"/><rect class="l2" x="4" y="6" width="1" height="2"/><rect class="l3" x="6" y="6" width="1" height="2"/><rect class="l4" x="8" y="6" width="1" height="2"/></g><g fill="#F3F3EE"><rect x="2" y="1" width="3" height="1"/><rect x="2" y="3" width="3" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="6" y="1" width="3" height="1"/><rect x="6" y="3" width="3" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="8" y="2" width="1" height="1"/><rect x="5" y="2" width="1" height="1"/></g><g class="eyes-dot" fill="#15130f"><rect x="3" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/></g><g class="eyes-work" fill="#15130f"><rect x="2" y="1" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="8" y="1" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/></g></svg></span><b>Reviewer</b><em class="st">Opus high</em></div>
+<div class="ag c-me" data-ag="me"><span class="slot"><img src="assets/profile.jpg" alt="" width="36" height="36"></span><b>Me</b><em class="st">gatekeeper</em></div>
+</div>
 <div class="pipe">
-<div class="step "><small>AGENT</small><b>Spec</b><span>Design → ticket → acceptance criteria</span></div>
-<div class="step gate"><small>◆ HUMAN GATE</small><b>Approve spec</b><span>Scope, edge cases, compliance</span></div>
-<div class="step "><small>AGENT</small><b>Plan</b><span>Tasks split by mobile, API, web</span></div>
-<div class="step w"><small>AGENTS ∥ PARALLEL</small><b>Build</b><div class="chips"><span>Flutter</span><span>Java</span><span>Node/TS</span><span>React</span></div></div>
-<div class="step "><small>AGENT</small><b>Verify</b><span>Tests, lint, AI code review</span></div>
-<div class="step gate"><small>◆ HUMAN GATE</small><b>Review diff</b><span>Architecture, security, UX</span></div>
-<div class="step ship"><small>CI/CD</small><b>Ship</b><span>App Store, Play Store, GCP, AWS, Vercel</span></div>
+<div class="step"><small>CLAUDE · SONNET</small><b>Brief</b><span>Who hurts, the outcome, the evidence. The Advisor weighs in on fuzzy ideas.</span></div>
+<div class="step gate" data-done="✓ APPROVED"><small>◆ HUMAN GATE</small><b>Approve brief</b><span>Problem agreed before any “how” is written</span></div>
+<div class="step"><small>ARCHITECT · OPUS</small><b>Design</b><span>Requirements, design and tasks, each tagged standard or high</span></div>
+<div class="step"><small>REVIEWER · OPUS</small><b>Review</b><span>Fresh-context review by a mind that didn’t write the spec</span></div>
+<div class="step gate" data-done="✓ APPROVED"><small>◆ HUMAN GATE</small><b>Approve spec</b><span>Nothing is built until I set Approved</span></div>
+<div class="step"><small>BUILDER · SONNET</small><b>Build</b><span>One builder per task; high-risk tasks run on Opus</span><div class="chips"><span>task 1</span><span>task 2 · high</span><span>task 3</span></div></div>
+<div class="step"><small>REVIEWER · OPUS</small><b>Audit</b><span>Diff judged against the design: green, yellow or red</span></div>
+<div class="step ship" data-done="✓ SHIPPED"><small>YOU + CI/CD</small><b>Ship</b><span>I accept it, CI/CD ships it</span></div>
+</div>
+</div>
+<div class="col" style="gap:16px">
+<div class="receipts">
+<div><b>200+</b><span>tests, run in CI on Linux, macOS and Windows</span></div>
+<div><b>3</b><span>review rounds at most per spec, then I decide</span></div>
+<div><b>4 · 17 · 5</b><span>agents, skills and hooks, one repo, identical on two machines</span></div>
+<div><b>Measured</b><span>model and effort pins checked in the live API request</span></div>
+</div>
+<p class="note">The repo is private, so happy to walk through it. One thing the measuring turned up: a skill’s <code>model:</code> line is ignored, so the tiers are applied by agents, not skills.</p>
 </div>
 <div class="grid3">
 <div class="box"><small>a.</small><h3>Specs are the contract</h3><p>Specs first, code second. A clear spec is what agents implement against and what I review against — no vibes, no drift.</p></div>
-<div class="box"><small>b.</small><h3>Humans own the decisions</h3><p>Agents carry scaffolding, refactors and tests. Architecture, trade-offs and anything touching money or user data go through me.</p></div>
-<div class="box"><small>c.</small><h3>Guardrails that scale to teams</h3><p>Typed contracts, test gates and review checklists — packaged so the whole team can run the same workflow, not just me.</p></div>
+<div class="box"><small>b.</small><h3>Humans own the decisions</h3><p>Agents carry scaffolding, refactors and tests. The reviewer never judges its own work, and acceptance stays mine: no merge, deploy or “Approved” without me.</p></div>
+<div class="box"><small>c.</small><h3>Guardrails that scale to teams</h3><p>Hooks that refuse writes to <code>.env</code> and <code>.git</code>, a spec-gate check, and a self-testing sync that rolls itself back. The whole workflow lives in one repo, so a team can run the same one.</p></div>
 </div>
 </div></section>
 
 <section id="work" class="sec reveal"><div class="wrap">
-<div class="head"><span class="eyebrow">02 — Selected work</span><h2>Products, end to end.</h2></div>
+<div class="head"><span class="eyebrow">02 — Selected work</span><h2>Products, end to end.</h2><p class="lead">From architecture to store release, and keeping the app running when it counts.</p></div>
 <div class="works">
 <article class="work wide">
-<div class="shot"><img src="assets/shot-clevercards.png" alt="CleverCards app screenshot" data-zoom></div>
+<div class="shot" style="--tint:rgba(139,60,255,.30)"><img src="assets/shot-clevercards.png" alt="CleverCards app screenshot" data-zoom></div>
 <div class="info">
 <div class="chips pills"><span class="hl">★ #1 Finance, Ireland</span><span class="">Mobile</span><span class="">Fintech</span></div>
 <h3><img src="assets/logo-clevercards.png" alt="">CleverCards</h3>
-<p>Helped rebuild the flagship app in Flutter and keep it running through three peak Christmas seasons at 30–50k DAU. 99% crash-free, app size down ~70%, load time down ~60%, and #1 in Finance on the Irish App Store.</p>
+<div class="rl">Senior Mobile → Full Stack Engineer · Feb 2023 — now</div>
+<p>Helped rebuild the flagship app in Flutter and keep it running through three peak Christmas seasons.</p>
+<div class="kpis"><div><b>30–50k</b><span>daily active users</span></div><div><b>99%</b><span>crash-free</span></div><div><b>~70%</b><span>smaller app</span></div><div><b>~60%</b><span>faster load</span></div></div>
 <div class="store"><a href="https://apps.apple.com/us/app/clevercards/id1521860373" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=com.clevercards.clevercash" target="_blank" rel="noopener">Google Play</a><a href="https://www.clevercards.com/" target="_blank" rel="noopener">Website</a></div>
 </div>
 </article>
 <article class="work">
-<div class="shot"><img src="assets/shot-shipeace-web.png" alt="Shipeace web app" data-zoom><img src="assets/shot-shipeace-mobile.png" alt="Shipeace mobile app" data-zoom></div>
+<div class="shot duo" style="--tint:rgba(37,87,167,.34)"><img class="web" src="assets/shot-shipeace-web.png" alt="Shipeace web app" data-zoom><img class="phone" src="assets/shot-shipeace-mobile.png" alt="Shipeace mobile app" data-zoom></div>
 <div class="info">
-<div class="chips pills"><span class="">Mobile</span><span class="">AI workflow</span><span class="">Logistics</span></div>
+<div class="chips pills"><span class="hl">$1.5M raised</span><span class="">Mobile</span><span class="">AI workflow</span><span class="">Logistics</span></div>
 <h3><img src="assets/logo-shipeace.png" alt=""><a href="https://www.shipeace.com/en" target="_blank" rel="noopener" style="text-decoration:none">Shipeace</a></h3>
+<div class="rl">Senior Full Stack Engineer, AI-First · Jul 2024 — now</div>
 <p>AI logistics platform. Led the mobile team, introduced the AI-augmented development process and helped get the product investment-ready — $1.5M raised.</p>
 <div class="store"><a href="https://www.shipeace.com/en" target="_blank" rel="noopener">Website</a><a href="https://play.google.com/store/apps/details?id=com.logipeace.shipeace_app" target="_blank" rel="noopener">Google Play</a></div>
 </div>
 </article>
 <article class="work">
-<div class="shot"><img src="assets/shot-arki.png" alt="Arki Finance app screenshot" data-zoom></div>
+<div class="shot" style="--tint:rgba(20,150,105,.32)"><img src="assets/shot-arki.png" alt="Arki Finance app screenshot" data-zoom></div>
 <div class="info">
-<div class="chips pills"><span>Mobile</span><span>Wealth</span><span>MAS-licensed</span></div>
+<div class="chips pills"><span>Mobile</span><span>Wealth</span><span class="hl">MAS-licensed</span></div>
 <h3><img src="assets/logo-arki.png" alt=""><a href="https://www.arkifinance.com/" target="_blank" rel="noopener" style="text-decoration:none">Arki Finance</a></h3>
+<div class="rl">Senior Full Stack Engineer, AI-First · Feb 2026 — now</div>
 <p>Personalised wealth platform licensed by the Monetary Authority of Singapore. Consulting on the mobile app as frontend lead, working with the CTO and Principal Engineer.</p>
 <div class="store"><a href="https://apps.apple.com/sg/app/arki-finance/id6733229005" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=com.optimalvest&amp;hl=en" target="_blank" rel="noopener">Google Play</a><a href="https://www.arkifinance.com/" target="_blank" rel="noopener">Website</a></div>
 </div>
 </article>
 <article class="work">
-<div class="shot"><img src="assets/shot-snapex.avif" alt="SnapEx crypto market screen" data-zoom></div>
+<div class="shot" style="--tint:rgba(242,170,120,.26)"><img src="assets/shot-snapex.avif" alt="SnapEx crypto market screen" data-zoom></div>
 <div class="info">
 <div class="chips pills"><span class="">Mobile</span><span class="">Crypto</span></div>
 <h3><img src="assets/logo-snapex.png" alt="">SnapEx</h3>
+<div class="rl">Mobile Tech Lead · Oct 2022 — Jan 2023</div>
 <p>Crypto derivatives exchange with live markets and take-profit / stop-loss trading, rebuilt solo in Flutter as mobile tech lead.</p>
 
 </div>
 </article>
 <article class="work">
-<div class="shot"><img src="assets/shot-acktrails.png" alt="ACKTrails app screenshot" data-zoom></div>
+<div class="shot" style="--tint:rgba(70,130,210,.30)"><img src="assets/shot-acktrails.png" alt="ACKTrails app screenshot" data-zoom></div>
 <div class="info">
 <div class="chips pills"><span class="">Mobile</span><span class="">Maps</span></div>
 <h3><img src="assets/logo-acktrails.png" alt=""><a href="https://acktrails.com/" target="_blank" rel="noopener" style="text-decoration:none">ACKTrails</a></h3>
+<div class="rl">Senior Mobile Developer · The Collective C · Apr 2020 — Apr 2021</div>
 <p>Outdoor navigation app for the Nantucket Conservation Foundation.</p>
 <div class="store"><a href="https://apps.apple.com/us/app/acktrails/id1462021860" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=com.nantucket.acktrails.android" target="_blank" rel="noopener">Google Play</a></div>
 </div>
@@ -309,7 +458,7 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 <script>
 (function(){
   document.addEventListener("click",function(e){
-    var img=e.target.closest("[data-zoom]");if(!img)return;
+    var sh=e.target.closest(".shot"),img=e.target.closest("[data-zoom]")||(sh&&sh.querySelector("[data-zoom]"));if(!img)return;
     var ov=document.createElement("div");
     ov.setAttribute("style","position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:32px;background:rgba(15,16,13,.92);cursor:zoom-out");
     var big=document.createElement("img");big.src=img.src;big.alt=img.alt;
@@ -320,6 +469,143 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
     ov.addEventListener("click",close);document.addEventListener("keydown",esc);
     document.body.appendChild(ov);
   });
+  (function(){
+    var flow=document.querySelector(".flow");
+    if(!flow||!("IntersectionObserver" in window)||matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+    var steps=[].slice.call(flow.querySelector(".pipe").children),chips=[].slice.call(flow.querySelectorAll(".chips span")),ag={};
+    /* each agent gets a bot that flies from its dock slot to the card it is working on */
+    [].forEach.call(flow.querySelectorAll(".ag"),function(a){
+      var k=a.getAttribute("data-ag"),slot=a.querySelector(".slot"),st=a.querySelector(".st"),
+          bot=document.createElement("div"),inn=document.createElement("div");
+      bot.className="bot c-"+k+(slot.querySelector(".mascot")?" mascot":"");bot.setAttribute("aria-hidden","true");inn.className="in";
+      [].forEach.call(slot.childNodes,function(c){inn.appendChild(c.cloneNode(true));});
+      bot.appendChild(inn);flow.appendChild(bot);
+      ag[k]={el:a,slot:slot,st:st,idle:st.textContent,bot:bot};
+    });
+    steps.forEach(function(s){s.setAttribute("data-label",s.querySelector("small").textContent);});
+    /* illustrative timeline: which agent is busy at each stage */
+    var plan=[
+      {d:3800,who:{advisor:"2nd opinion",claude:"brief §1–6"}},
+      {d:2800,who:{me:"approving"}},
+      {d:3600,who:{architect:"design·tasks"}},
+      {d:3400,who:{reviewer:"spec review"}},
+      {d:2800,who:{me:"approving"}},
+      {d:5000,who:{claude:"dispatching",builder:"task by task",reviewer:"task review"},chips:["builder","builder","builder"]},
+      {d:3400,who:{reviewer:"audit diff"}},
+      {d:3000,who:{me:"accepting"}}
+    ];
+
+    var n=-1,t=0;
+    var pos={};
+    function T(x,y){return "translate("+Math.round(x)+"px,"+Math.round(y)+"px)";}
+    /* walk: drop down first, or walk across first when heading back up to the dock */
+    function go(k,x,y,delay,instant){
+      var b=ag[k].bot,p=pos[k]||{x:x,y:y},dx=Math.abs(x-p.x),dy=Math.abs(y-p.y);
+      b.style.transform=T(x,y);pos[k]={x:x,y:y};
+      b.getAnimations().forEach(function(a){a.cancel();});
+      b.classList.remove("moving");
+      if(instant||(dx<1&&dy<1)||!b.animate)return;
+      var up=y<p.y,mid=up?{x:x,y:p.y}:{x:p.x,y:y},dist=dx+dy,dur=Math.min(1700,Math.max(700,dist/.4)),f=(up?dx:dy)/dist;
+      var a=b.animate([{transform:T(p.x,p.y)},{transform:T(mid.x,mid.y),offset:f},{transform:T(x,y)}],
+        {duration:dur,delay:delay,easing:"cubic-bezier(.45,0,.3,1)",fill:"backwards"});
+      b.style.setProperty("--dir",x>=p.x?1:-1);
+      var on=setTimeout(function(){b.classList.add("moving");},delay);
+      function end(){clearTimeout(on);b.classList.remove("moving");}
+      a.onfinish=end;a.oncancel=end;
+    }
+    function layout(i,instant){
+      var fr=flow.getBoundingClientRect(),keys=Object.keys((plan[i]||{who:{}}).who);
+      Object.keys(ag).forEach(function(k){
+        var o=keys.indexOf(k),r;
+        if(o<0){r=ag[k].slot.getBoundingClientRect();go(k,r.left-fr.left,r.top-fr.top,0,instant);return;}
+        r=steps[i].getBoundingClientRect();
+        /* the mascot stands on the card edge, the round bots hover across it */
+        go(k,r.left+r.width/2-fr.left-18+(o-(keys.length-1)/2)*48,r.top-fr.top-(ag[k].bot.classList.contains("mascot")?36:18),o*140,instant);
+      });
+    }
+    function setStep(i){
+      steps.forEach(function(s,k){
+        var small=s.querySelector("small"),done=k<i;
+        s.classList.remove("active");
+        s.classList.toggle("done",done);
+        small.textContent=done&&s.getAttribute("data-done")?s.getAttribute("data-done"):s.getAttribute("data-label");
+        if(k===i){s.style.setProperty("--d",plan[k].d+"ms");void s.offsetWidth;s.classList.add("active");}
+      });
+      var p=plan[i]||{who:{}},prev=plan[i-1];
+      Object.keys(ag).forEach(function(k){
+        var on=k in p.who;
+        ag[k].el.classList.toggle("on",on);
+        ag[k].bot.classList.toggle("busy",on);
+        ag[k].st.textContent=on?p.who[k]:ag[k].idle;
+      });
+      ag.me.bot.classList.toggle("ok",!!(prev&&prev.who.me)||i>=steps.length);
+      chips.forEach(function(c,k){c.className=p.chips?"on c-"+p.chips[k]:"";});
+      layout(i);
+    }
+    function run(){
+      flow.classList.add("run");
+      setStep(n);
+      t=setTimeout(function(){n=n>=steps.length?-1:n+1;run();},n<0?900:n>=steps.length?2800:plan[n].d);
+    }
+    /* park every bot on its dock slot without animating, then reveal them */
+    Object.keys(ag).forEach(function(k){ag[k].bot.style.transition="none";});
+    layout(-1,true);void flow.offsetWidth;
+    Object.keys(ag).forEach(function(k){ag[k].bot.style.transition="";});
+    flow.classList.add("live");
+    var rz=0;window.addEventListener("resize",function(){cancelAnimationFrame(rz);rz=requestAnimationFrame(function(){layout(n,true);});});
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){layout(n,true);});
+    new IntersectionObserver(function(es){
+      if(es[0].isIntersecting){flow.classList.remove("paused");if(!t)run();}
+      else{flow.classList.add("paused");clearTimeout(t);t=0;}
+    },{threshold:.25}).observe(flow);
+  })();
+  (function(){
+    var g=document.querySelector(".gag");
+    if(!g||matchMedia("(prefers-reduced-motion:reduce)").matches||!("IntersectionObserver" in window))return;
+    g.classList.add("on");
+    var cl=g.querySelector(".cl"),say=g.querySelector(".say.c"),re=g.querySelector(".say.t"),reTxt=re.querySelector("span");
+    /* short dev-joke scenes: Claude says something questionable, I answer, Claude reacts */
+    var scenes=[
+      {say:"git push --force?",re:"absolutely not.",proud:0,mood:"sad"},
+      {say:"all tests pass!",re:"you deleted them.",proud:1,mood:"sad"},
+      {say:"skip the review gate?",re:"nice try.",proud:0,mood:"sad"},
+      {say:"rm -rf node_modules?",re:"...fine, go ahead.",proud:0,mood:"happy"}
+    ];
+    var tok=0,i=0;
+    function wait(ms){return new Promise(function(r){setTimeout(r,ms);});}
+    function reset(){
+      cl.style.transition="none";cl.className="cl";void cl.offsetWidth;cl.style.transition="";
+      say.classList.remove("show");re.classList.remove("show");
+    }
+    async function loop(my){
+      while(my===tok){
+        var sc=scenes[i++%scenes.length];
+        say.textContent=sc.say;reTxt.textContent=sc.re;
+        reset();
+        cl.style.setProperty("--dir",1);cl.classList.add("here","moving");
+        await wait(1400);if(my!==tok)return;
+        cl.classList.remove("moving");cl.classList.toggle("proud",!!sc.proud);say.classList.add("show");
+        await wait(2700);if(my!==tok)return;
+        say.classList.remove("show");await wait(350);if(my!==tok)return;
+        cl.classList.remove("proud");cl.classList.add(sc.mood);re.classList.add("show");
+        await wait(3000);if(my!==tok)return;
+        re.classList.remove("show");await wait(450);if(my!==tok)return;
+        cl.classList.remove("sad","happy");cl.style.setProperty("--dir",-1);cl.classList.remove("here");cl.classList.add("moving");
+        await wait(1400);if(my!==tok)return;
+        cl.classList.remove("moving");
+        await wait(1600);
+      }
+    }
+    new IntersectionObserver(function(es){
+      if(es[0].isIntersecting){loop(++tok);}else{tok++;reset();}
+    },{threshold:.3}).observe(g);
+  })();
+  var nav=document.querySelector(".nav"),burger=nav.querySelector(".burger");
+  function setMenu(o){nav.classList.toggle("open",o);burger.setAttribute("aria-expanded",o);}
+  burger.addEventListener("click",function(){setMenu(!nav.classList.contains("open"));});
+  nav.querySelector(".links").addEventListener("click",function(e){if(e.target.closest("a"))setMenu(false);});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")setMenu(false);});
+  window.addEventListener("resize",function(){if(window.innerWidth>720)setMenu(false);});
   var links=[].slice.call(document.querySelectorAll("[data-nav]")),map={};
   links.forEach(function(a){map[a.getAttribute("data-nav")]=a;});
   if("IntersectionObserver" in window){
