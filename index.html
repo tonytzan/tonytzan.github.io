@@ -114,16 +114,26 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .step span{font-size:14px;color:var(--mute)}
 .step.gate{background:none;border:1.5px dashed var(--gate)}
 .step.gate small{color:var(--gate)}
-.flow{display:flex;flex-direction:column;gap:14px}
+.flow{position:relative;display:flex;flex-direction:column;gap:40px}
+.flow .pipe{row-gap:34px}
 .agents{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:10px;font-family:"Geist Mono",monospace;font-size:12.5px}
-.ag{--c:var(--dim);display:grid;grid-template-columns:auto 1fr;column-gap:10px;align-items:center;padding:12px 14px;border:1px solid var(--line2);border-radius:12px;background:var(--panel);transition:border-color .3s,box-shadow .3s}
-.ag i{grid-row:1/3;width:8px;height:8px;border-radius:99px;background:var(--c);opacity:.45;transition:opacity .3s}
+.ag{--c:var(--dim);display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:center;padding:10px 14px 10px 10px;border:1px solid var(--line2);border-radius:14px;background:var(--panel);transition:border-color .3s,box-shadow .3s}
+.slot{grid-row:1/3;width:36px;height:36px;border-radius:50%;border:1.5px dashed var(--line3);background:var(--panel2);display:grid;place-items:center;overflow:hidden}
+.slot svg,.bot svg{width:20px;height:20px;stroke:var(--c);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.slot img,.bot img{width:100%;height:100%;object-fit:cover}
+.flow.live .slot>*{opacity:0}
 .ag b{font-weight:500;color:var(--soft)}
-.ag span{color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .3s}
+.ag em{font-style:normal;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .3s}
 .ag.on{border-color:var(--c);box-shadow:0 0 28px -10px var(--c)}
-.ag.on i{opacity:1;animation:ping 1.3s infinite}
-.ag.on span{color:var(--text)}
-@keyframes ping{0%{box-shadow:0 0 0 0 var(--c)}100%{box-shadow:0 0 0 7px transparent}}
+.ag.on em{color:var(--text)}
+.bot{position:absolute;left:0;top:0;width:36px;height:36px;z-index:6;pointer-events:none;opacity:0;transition:transform 1.1s cubic-bezier(.5,0,.2,1.2),opacity .4s}
+.flow.live .bot{opacity:1}
+.bot .in{position:relative;width:100%;height:100%;border-radius:50%;border:1.5px solid var(--c);background:var(--panel2);display:grid;place-items:center;overflow:hidden;box-shadow:0 8px 18px -8px #000;opacity:.7;transition:opacity .3s}
+.bot.work .in{opacity:1;animation:bob 1.6s ease-in-out infinite}
+.bot.work::after{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px solid var(--c);animation:ring 1.5s ease-out infinite}
+.bot.ok::before{content:"✓";position:absolute;right:-5px;top:-5px;width:17px;height:17px;border-radius:50%;background:var(--accent);color:var(--bg);font:600 11px/17px "Geist Mono",monospace;text-align:center;z-index:2}
+@keyframes bob{50%{transform:translateY(-4px)}}
+@keyframes ring{to{transform:scale(1.9);opacity:0}}
 .c-claude{--c:#E8956B}.c-codex{--c:#6CB6FF}.c-grok{--c:#C4A2FF}.c-me{--c:var(--gate)}
 .step{position:relative;overflow:hidden;transition:opacity .4s,border-color .3s,background .3s}
 .step::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left}
@@ -141,7 +151,7 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .step.gate.done small{color:var(--accent)}
 .chips span{transition:background .3s,color .3s}
 .chips span.on{background:var(--c);color:#15130f}
-.flow.paused *,.flow.paused *::after{animation-play-state:paused!important}
+.flow.paused *,.flow.paused *::before,.flow.paused *::after{animation-play-state:paused!important}
 .step.ship{background:var(--accent);border-color:var(--accent);color:var(--bg)}
 .step.ship small{color:#2E3A12}.step.ship span{color:#26300E}
 .chips{display:flex;flex-wrap:wrap;gap:6px;font-family:"Geist Mono",monospace;font-size:12px}
@@ -216,10 +226,10 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .links a:first-child{border-top:0}
 .links a::after{display:none}
 }
-@media (max-width:640px){.ag{padding:10px 12px;column-gap:8px;font-size:12px}}
+@media (max-width:640px){.ag{padding:8px 10px 8px 8px;column-gap:9px;font-size:12px}}
 @media (max-width:400px){.who .id b{font-size:17px}}
 @media (max-width:640px){.sec .wrap{padding-top:72px;padding-bottom:64px}.hero{padding-top:56px}}
-@media print{.agents{display:none}.step{opacity:1!important}*{color:#15130f!important;background:none!important;border-color:#cfc9bd!important;animation:none!important}.nav,.reveal{position:static}.reveal{opacity:1!important;transform:none!important}body{background:#fff!important}}
+@media print{.agents,.bot{display:none}.step{opacity:1!important}*{color:#15130f!important;background:none!important;border-color:#cfc9bd!important;animation:none!important}.nav,.reveal{position:static}.reveal{opacity:1!important;transform:none!important}body{background:#fff!important}}
 </style>
 </head>
 <body>
@@ -269,10 +279,10 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 <p class="lead">I run feature work through a pipeline of AI coding agents inside Claude Code — custom slash commands for each SDLC stage. Agents draft, implement and test. I set the spec, approve the plan and review every diff before it ships.</p></div>
 <div class="flow">
 <div class="agents" aria-hidden="true">
-<div class="ag c-claude" data-ag="claude"><i></i><b>Claude Code</b><span>idle</span></div>
-<div class="ag c-codex" data-ag="codex"><i></i><b>Codex</b><span>idle</span></div>
-<div class="ag c-grok" data-ag="grok"><i></i><b>Grok</b><span>idle</span></div>
-<div class="ag c-me" data-ag="me"><i></i><b>Me</b><span>standing by</span></div>
+<div class="ag c-claude" data-ag="claude"><span class="slot"><svg viewBox="0 0 24 24"><path d="M12 12 12 2.5M12 12l4.75-8.2M12 12l8.2-4.75M12 12h9.5M12 12l8.2 4.75M12 12l-4.75 8.2M12 12v9.5M12 12l4.75 8.2M12 12 3.8 16.75M12 12H2.5M12 12 3.8 7.25M12 12 7.25 3.8"/></svg></span><b>Claude Code</b><em class="st">idle</em></div>
+<div class="ag c-codex" data-ag="codex"><span class="slot"><svg viewBox="0 0 24 24"><path d="m5 7 5.5 5L5 17"/><path d="M13 18h6"/></svg></span><b>Codex</b><em class="st">idle</em></div>
+<div class="ag c-grok" data-ag="grok"><span class="slot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5"/><path d="M4 20 20 4"/></svg></span><b>Grok</b><em class="st">idle</em></div>
+<div class="ag c-me" data-ag="me"><span class="slot"><img src="assets/profile.jpg" alt="" width="36" height="36"></span><b>Me</b><em class="st">standing by</em></div>
 </div>
 <div class="pipe">
 <div class="step "><small>AGENT</small><b>Spec</b><span>Design → ticket → acceptance criteria</span></div>
@@ -387,19 +397,37 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
     var flow=document.querySelector(".flow");
     if(!flow||!("IntersectionObserver" in window)||matchMedia("(prefers-reduced-motion:reduce)").matches)return;
     var steps=[].slice.call(flow.querySelector(".pipe").children),chips=[].slice.call(flow.querySelectorAll(".chips span")),ag={};
-    [].forEach.call(flow.querySelectorAll(".ag"),function(a){var s=a.querySelector("span");ag[a.getAttribute("data-ag")]={el:a,s:s,idle:s.textContent};});
+    /* each agent gets a bot that flies from its dock slot to the card it is working on */
+    [].forEach.call(flow.querySelectorAll(".ag"),function(a){
+      var k=a.getAttribute("data-ag"),slot=a.querySelector(".slot"),st=a.querySelector(".st"),
+          bot=document.createElement("div"),inn=document.createElement("div");
+      bot.className="bot c-"+k;bot.setAttribute("aria-hidden","true");inn.className="in";
+      [].forEach.call(slot.childNodes,function(c){inn.appendChild(c.cloneNode(true));});
+      bot.appendChild(inn);flow.appendChild(bot);
+      ag[k]={el:a,slot:slot,st:st,idle:st.textContent,bot:bot};
+    });
     steps.forEach(function(s){s.setAttribute("data-label",s.querySelector("small").textContent);});
     /* illustrative timeline: which agent is busy at each stage */
     var plan=[
-      {d:2600,who:{claude:"drafting spec"}},
-      {d:2300,who:{me:"reviewing spec"}},
-      {d:2500,who:{claude:"task split"}},
-      {d:4200,who:{claude:"Flutter · Java",codex:"Node/TS API",grok:"React web"},chips:["claude","claude","codex","grok"]},
-      {d:3200,who:{codex:"AI code review",grok:"tests · lint"}},
-      {d:2300,who:{me:"reviewing diff"}},
-      {d:2800,who:{claude:"opening PR"}}
+      {d:3000,who:{claude:"drafting spec"}},
+      {d:2800,who:{me:"review spec"}},
+      {d:3000,who:{claude:"task split"}},
+      {d:4600,who:{claude:"Flutter · Java",codex:"Node/TS API",grok:"React web"},chips:["claude","claude","codex","grok"]},
+      {d:3400,who:{codex:"AI code review",grok:"tests · lint"}},
+      {d:2800,who:{me:"review diff"}},
+      {d:3000,who:{claude:"opening PR"}}
     ];
     var n=-1,t=0;
+    function place(k,x,y,delay){var b=ag[k].bot;b.style.transitionDelay=delay+"ms";b.style.transform="translate("+Math.round(x)+"px,"+Math.round(y)+"px)";}
+    function layout(i){
+      var fr=flow.getBoundingClientRect(),keys=Object.keys((plan[i]||{who:{}}).who);
+      Object.keys(ag).forEach(function(k){
+        var o=keys.indexOf(k),r;
+        if(o<0){r=ag[k].slot.getBoundingClientRect();place(k,r.left-fr.left,r.top-fr.top,0);return;}
+        r=steps[i].getBoundingClientRect();
+        place(k,r.left+r.width/2-fr.left-18+(o-(keys.length-1)/2)*42,r.top-fr.top-18,o*140);
+      });
+    }
     function setStep(i){
       steps.forEach(function(s,k){
         var small=s.querySelector("small"),done=k<i;
@@ -408,15 +436,29 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
         small.textContent=done&&s.getAttribute("data-done")?s.getAttribute("data-done"):s.getAttribute("data-label");
         if(k===i){s.style.setProperty("--d",plan[k].d+"ms");void s.offsetWidth;s.classList.add("active");}
       });
-      var p=plan[i]||{who:{}};
-      Object.keys(ag).forEach(function(k){var on=k in p.who;ag[k].el.classList.toggle("on",on);ag[k].s.textContent=on?p.who[k]:ag[k].idle;});
+      var p=plan[i]||{who:{}},prev=plan[i-1];
+      Object.keys(ag).forEach(function(k){
+        var on=k in p.who;
+        ag[k].el.classList.toggle("on",on);
+        ag[k].bot.classList.toggle("work",on);
+        ag[k].st.textContent=on?p.who[k]:ag[k].idle;
+      });
+      ag.me.bot.classList.toggle("ok",!!(prev&&prev.who.me)||i>=steps.length);
       chips.forEach(function(c,k){c.className=p.chips?"on c-"+p.chips[k]:"";});
+      layout(i);
     }
     function run(){
       flow.classList.add("run");
       setStep(n);
-      t=setTimeout(function(){n=n>=steps.length?-1:n+1;run();},n<0?700:n>=steps.length?2600:plan[n].d);
+      t=setTimeout(function(){n=n>=steps.length?-1:n+1;run();},n<0?900:n>=steps.length?2800:plan[n].d);
     }
+    /* park every bot on its dock slot without animating, then reveal them */
+    Object.keys(ag).forEach(function(k){ag[k].bot.style.transition="none";});
+    layout(-1);void flow.offsetWidth;
+    Object.keys(ag).forEach(function(k){ag[k].bot.style.transition="";});
+    flow.classList.add("live");
+    var rz=0;window.addEventListener("resize",function(){cancelAnimationFrame(rz);rz=requestAnimationFrame(function(){layout(n);});});
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){layout(n);});
     new IntersectionObserver(function(es){
       if(es[0].isIntersecting){flow.classList.remove("paused");if(!t)run();}
       else{flow.classList.add("paused");clearTimeout(t);t=0;}
