@@ -66,7 +66,9 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .nav{position:sticky;top:0;z-index:50;background:rgba(15,16,13,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav .wrap{padding-top:14px;padding-bottom:14px;display:flex;align-items:center;gap:8px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:600;letter-spacing:-.01em}
-.logo{width:36px;height:36px;border-radius:8px;background:var(--accent);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:"Geist Mono",monospace;font-weight:500;font-size:14px}
+.logo{width:36px;height:36px;flex-shrink:0;display:block;overflow:visible}
+@keyframes gate{50%{opacity:.2}}
+.brand:hover .logo .gate{animation:gate .5s steps(1,end) 3}
 .links{display:flex;align-items:center;gap:2px;margin-left:auto;font-family:"Geist Mono",monospace;font-size:13.5px}
 .links a{position:relative;padding:10px 12px;text-decoration:none;color:var(--soft);transition:color .2s}
 .links a::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:1.5px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s}
@@ -272,7 +274,7 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .foot{margin-top:64px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:"Geist Mono",monospace;font-size:12px;color:var(--dim)}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s cubic-bezier(.2,.7,.3,1)}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.dot,.cursor{animation:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.dot,.cursor,.logo .gate{animation:none!important}html{scroll-behavior:auto}}
 @media (max-width:720px){
 .nav .wrap{padding-top:10px;padding-bottom:10px}
 .burger{display:flex}
@@ -292,7 +294,7 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 </head>
 <body>
 <header class="nav"><nav class="wrap" aria-label="Main">
-<a href="#top" class="brand"><span class="logo">TT</span><span>Tony Tran</span></a>
+<a href="#top" class="brand"><svg class="logo" aria-hidden="true" focusable="false" viewBox="0 0 23 23"><rect x="0.5" y="0.5" width="22" height="22" rx="4.5" fill="#161813" stroke="#C8F169" stroke-width="1"/><rect x="3.30" y="3.30" width="2.6" height="2.6" rx=".5" fill="#C8F169"/><rect x="6.75" y="3.30" width="2.6" height="2.6" rx=".5" fill="#C8F169"/><rect x="10.20" y="3.30" width="2.6" height="2.6" rx=".5" fill="#C8F169"/><rect x="13.65" y="3.30" width="2.6" height="2.6" rx=".5" fill="#C8F169"/><rect x="17.10" y="3.30" width="2.6" height="2.6" rx=".5" fill="#C8F169"/><rect x="3.30" y="6.75" width="2.6" height="2.6" rx=".5" fill="#C8F169" fill-opacity=".14"/><rect x="6.75" y="6.75" width="2.6" height="2.6" rx=".5" fill="#C8F169" fill-opacity=".14"/><rect x="10.20" y="6.75" width="2.6" height="2.6" rx=".5" fill="#C8F169"/><rect x="13.65" y="6.75" width="2.6" height="2.6" rx=".5" fill="#C8F169" fill-opacity=".14"/><rect x="17.10" y="6.75" width="2.6" height="2.6" rx=".5" fill="#C8F169" fill-opacity=".14"/><rect x="3.30" y="10.20" width="2.6" height="2.6" rx=".5" fill="#C8F169" fill-opacity=".14"/><rect x="6.75" y="10.20" width="2.6" height="2.6" rx=".5" fill="#C8F169" fill-opacity=".14"/><rect x="10.20" y="10.20" width="2.6" height="2.6" rx=".5" fill="#C8F169"/><rect x="13.65" y="10.20" width="2.6" height="2.6" rx=".5" fill="#C8F169" fill-opacity=".14"/><rect x="17.10" y="10.20" width="2.6" height="2.6" rx=".5" fill="#C8F169" fill-opacity=".14"/><rect x="3.30" y="13.65" width="2.6" height="2.6" rx=".5" fill="#C8F169" fill-opacity=".14"/><rect x="6.75" y="13.65" width="2.6" height="2.6" rx=".5" fill="#C8F169" fill-opacity=".14"/><rect x="10.20" y="13.65" width="2.6" height="2.6" rx=".5" fill="#C8F169"/><rect x="13.65" y="13.65" width="2.6" height="2.6" rx=".5" fill="#C8F169" fill-opacity=".14"/><rect x="17.10" y="13.65" width="2.6" height="2.6" rx=".5" fill="#C8F169" fill-opacity=".14"/><rect x="3.30" y="17.10" width="2.6" height="2.6" rx=".5" fill="#C8F169" fill-opacity=".14"/><rect x="6.75" y="17.10" width="2.6" height="2.6" rx=".5" fill="#C8F169" fill-opacity=".14"/><rect class="gate" x="10.20" y="17.10" width="2.6" height="2.6" rx=".5" fill="#FFB14A"/><rect x="13.65" y="17.10" width="2.6" height="2.6" rx=".5" fill="#C8F169" fill-opacity=".14"/><rect x="17.10" y="17.10" width="2.6" height="2.6" rx=".5" fill="#C8F169" fill-opacity=".14"/></svg><span>Tony Tran</span></a>
 <div class="links" id="menu">
 <a data-nav="harness" href="#harness">Harness</a><a data-nav="work" href="#work">Work</a><a data-nav="experience" href="#experience">Experience</a><a data-nav="stack" href="#stack">Stack</a>
 </div>
@@ -377,10 +379,10 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 <article class="work wide">
 <div class="shot" style="--tint:rgba(139,60,255,.30)"><img src="assets/shot-clevercards.png" alt="CleverCards app screenshot" data-zoom></div>
 <div class="info">
-<div class="chips pills"><span class="hl">★ #1 Finance, Ireland</span><span class="">Mobile</span><span class="">Fintech</span></div>
+<div class="chips pills"><span class="hl">★ #1 Finance, Ireland</span><span class="">Mobile</span><span class="">Fintech</span><span class="">Stripe</span></div>
 <h3><img src="assets/logo-clevercards.png" alt="">CleverCards</h3>
 <div class="rl">Senior Mobile → Full Stack Engineer · Feb 2023 — now</div>
-<p>Helped rebuild the flagship app in Flutter and keep it running through three peak Christmas seasons.</p>
+<p>Helped rebuild the flagship app in Flutter and keep it running through three peak Christmas seasons. Supported the Stripe integration, connecting the company to one of the best payment platforms on the VISA network.</p>
 <div class="kpis"><div><b>30–50k</b><span>daily active users</span></div><div><b>99%</b><span>crash-free</span></div><div><b>~70%</b><span>smaller app</span></div><div><b>~60%</b><span>faster load</span></div></div>
 <div class="store"><a href="https://apps.apple.com/us/app/clevercards/id1521860373" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=com.clevercards.clevercash" target="_blank" rel="noopener">Google Play</a><a href="https://www.clevercards.com/" target="_blank" rel="noopener">Website</a></div>
 </div>
