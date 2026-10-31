@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tuan (Tony) Tran Manh — Senior Software Engineer (AI-Native)</title>
-<meta name="description" content="Senior Software Engineer (AI-Native) with 9 years in mobile. Flutter, Node.js/TypeScript and web, shipped through a spec-driven agentic harness. CleverCards, Arki Finance, Shipeace.">
+<meta name="description" content="Senior Software Engineer (AI-Native) with 9 years in mobile. Flutter, Node.js/TypeScript and web, shipped through a spec-driven agentic harness. CleverCards, Shipeace.">
 <link rel="canonical" href="https://tonytran.me/">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -12,13 +12,13 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tonytran.me/">
 <meta property="og:title" content="Tuan (Tony) Tran Manh — Senior Software Engineer (AI-Native)">
-<meta property="og:description" content="Senior Software Engineer (AI-Native) with 9 years in mobile. Flutter, Node.js/TypeScript and web, shipped through a spec-driven agentic harness. CleverCards, Arki Finance, Shipeace.">
+<meta property="og:description" content="Senior Software Engineer (AI-Native) with 9 years in mobile. Flutter, Node.js/TypeScript and web, shipped through a spec-driven agentic harness. CleverCards, Shipeace.">
 <meta property="og:image" content="https://tonytran.me/assets/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tuan (Tony) Tran Manh — Senior Software Engineer (AI-Native)">
-<meta name="twitter:description" content="Senior Software Engineer (AI-Native) with 9 years in mobile. Flutter, Node.js/TypeScript and web, shipped through a spec-driven agentic harness. CleverCards, Arki Finance, Shipeace.">
+<meta name="twitter:description" content="Senior Software Engineer (AI-Native) with 9 years in mobile. Flutter, Node.js/TypeScript and web, shipped through a spec-driven agentic harness. CleverCards, Shipeace.">
 <meta name="twitter:image" content="https://tonytran.me/assets/og-banner.png">
 <script type="application/ld+json">
 {
@@ -214,19 +214,27 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 .shot{position:relative;background:radial-gradient(90% 85% at 50% 100%,var(--tint,transparent),transparent 72%),var(--panel2)}
 .shot img{height:100%;width:auto;max-width:none;object-fit:cover;object-position:top;border-radius:14px 14px 0 0;box-shadow:0 0 0 1px rgba(255,255,255,.10),0 22px 40px -18px #000}
 .shot.duo{gap:14px;padding-left:20px;padding-right:20px}
-.shot.duo .web{flex:1 1 0;min-width:0;width:0;object-position:left top}
+.shot.duo .web{flex:1 1 0;min-width:0;width:0;object-position:center top}
 .shot.duo .phone{flex:none}
 @media (max-width:700px){.shot.duo .web{display:none}}
 .shot::after{content:"Zoom";position:absolute;right:12px;top:12px;padding:4px 10px;border:1px solid var(--line3);border-radius:99px;background:rgba(15,16,13,.72);font-family:"Geist Mono",monospace;font-size:11px;color:var(--soft);opacity:0;transition:opacity .2s;pointer-events:none}
 .shot:hover::after{opacity:1}
 @media (hover:none){.shot::after{opacity:.85}}
 .rl{margin-top:-6px;font-family:"Geist Mono",monospace;font-size:12.5px;line-height:1.5;color:var(--dim)}
+.own{margin-top:2px;font-family:"Geist Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.resp{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.resp li{position:relative;padding-left:18px;color:var(--mute);font-size:15px;line-height:1.5}
+.resp li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:2px;background:var(--accent)}
+.resp b{color:var(--soft);font-weight:500}
+.work.wide .shot.duo{height:auto;min-height:430px}
+.work.wide .shot.duo img{height:400px;max-height:none}
+.work.wide .shot.duo .web{width:0;min-width:0;max-width:none}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:10px}
 .kpis div{padding:12px 14px;border:1px solid var(--line2);border-radius:12px;background:rgba(255,255,255,.02);display:flex;flex-direction:column;gap:2px}
 .kpis b{font-size:22px;font-weight:600;letter-spacing:-.02em;line-height:1.2;color:var(--accent)}
 .kpis span{font-size:13px;color:var(--mute)}
 .work.wide .shot{flex:1 1 420px;height:auto;min-height:320px;padding:28px 28px 0;gap:20px}
-.work.wide .shot img{height:auto;max-height:340px;max-width:100%}
+.work.wide .shot img{height:auto;max-height:560px;max-width:100%}
 .info{padding:28px;display:flex;flex-direction:column;gap:14px;flex:1}
 .work.wide .info{flex:1 1 420px;padding:36px;justify-content:center}
 .info h3{font-size:26px;letter-spacing:-.02em;display:flex;align-items:center;gap:12px}
@@ -379,32 +387,37 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 <article class="work wide">
 <div class="shot" style="--tint:rgba(139,60,255,.30)"><img src="assets/shot-clevercards.png" alt="CleverCards app screenshot" data-zoom></div>
 <div class="info">
-<div class="chips pills"><span class="hl">★ #1 Finance, Ireland</span><span class="">Mobile</span><span class="">Fintech</span><span class="">Stripe</span></div>
+<div class="chips pills"><span class="hl">★ #1 Finance, Ireland</span><span class="">Mobile</span><span class="">Fintech</span><span class="">B2B SDK</span><span class="">Stripe</span></div>
 <h3><img src="assets/logo-clevercards.png" alt="">CleverCards</h3>
 <div class="rl">Senior Mobile → Full Stack Engineer · Feb 2023 — now</div>
-<p>Helped rebuild the flagship app in Flutter and keep it running through three peak Christmas seasons. Supported the Stripe integration, connecting the company to one of the best payment platforms on the VISA network.</p>
+<p>Helped rebuild the flagship app in Flutter and keep it running through three peak Christmas seasons, then built the SDK that lets partners embed its card management.</p>
+<div class="own">What I owned</div>
+<ul class="resp">
+<li><b>B2B Mobile SDK</b> for iOS, Android and Flutter: partners integrate card management across Ireland, the UK and the US.</li>
+<li><b>Server-to-server token architecture</b> and the Node.js/TypeScript APIs behind the SDK’s authentication.</li>
+<li><b>Security-critical layer:</b> biometrics, Keychain/Keystore token storage, jailbreak/root detection, OCR receipt matching.</li>
+<li><b>Payments:</b> Apple Pay, Google Pay, and support on the Stripe integration that connects the company to one of the best payment platforms on the VISA network.</li>
+<li><b>Releases:</b> App Store and Play Store submissions, owned end to end.</li>
+</ul>
 <div class="kpis"><div><b>30–50k</b><span>daily active users</span></div><div><b>99%</b><span>crash-free</span></div><div><b>~70%</b><span>smaller app</span></div><div><b>~60%</b><span>faster load</span></div></div>
 <div class="store"><a href="https://apps.apple.com/us/app/clevercards/id1521860373" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=com.clevercards.clevercash" target="_blank" rel="noopener">Google Play</a><a href="https://www.clevercards.com/" target="_blank" rel="noopener">Website</a></div>
 </div>
 </article>
-<article class="work">
+<article class="work wide">
 <div class="shot duo" style="--tint:rgba(37,87,167,.34)"><img class="web" src="assets/shot-shipeace-web.png" alt="Shipeace web app" data-zoom><img class="phone" src="assets/shot-shipeace-mobile.png" alt="Shipeace mobile app" data-zoom></div>
 <div class="info">
 <div class="chips pills"><span class="hl">$1.5M raised</span><span class="">Mobile</span><span class="">AI workflow</span><span class="">Logistics</span></div>
 <h3><img src="assets/logo-shipeace.png" alt=""><a href="https://www.shipeace.com/en" target="_blank" rel="noopener" style="text-decoration:none">Shipeace</a></h3>
 <div class="rl">Senior Full Stack Engineer, AI-First · Jul 2024 — now</div>
-<p>AI logistics platform. Led the mobile team, introduced the AI-augmented development process and helped get the product investment-ready — $1.5M raised.</p>
+<p>AI logistics platform: shipment tracking, RAG and document AI.</p>
+<div class="own">What I owned</div>
+<ul class="resp">
+<li><b>Mobile lead:</b> led the mobile team and the mobile architecture of the product.</li>
+<li><b>AI-augmented SDLC:</b> built the spec-driven workflow that speeds up feature delivery, the one my agent harness grew out of.</li>
+<li><b>Investment-ready:</b> helped get the product there, with $1.5M raised.</li>
+<li><b>Full-stack reach:</b> Flutter, Next.js, Python and AWS, shipped with Claude Code.</li>
+</ul>
 <div class="store"><a href="https://www.shipeace.com/en" target="_blank" rel="noopener">Website</a><a href="https://play.google.com/store/apps/details?id=com.logipeace.shipeace_app" target="_blank" rel="noopener">Google Play</a></div>
-</div>
-</article>
-<article class="work">
-<div class="shot" style="--tint:rgba(20,150,105,.32)"><img src="assets/shot-arki.png" alt="Arki Finance app screenshot" data-zoom></div>
-<div class="info">
-<div class="chips pills"><span>Mobile</span><span>Wealth</span><span class="hl">MAS-licensed</span></div>
-<h3><img src="assets/logo-arki.png" alt=""><a href="https://www.arkifinance.com/" target="_blank" rel="noopener" style="text-decoration:none">Arki Finance</a></h3>
-<div class="rl">Senior Full Stack Engineer, AI-First · Feb 2026 — now</div>
-<p>Personalised wealth platform licensed by the Monetary Authority of Singapore. Consulting on the mobile app as frontend lead, working with the CTO and Principal Engineer.</p>
-<div class="store"><a href="https://apps.apple.com/sg/app/arki-finance/id6733229005" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=com.optimalvest&amp;hl=en" target="_blank" rel="noopener">Google Play</a><a href="https://www.arkifinance.com/" target="_blank" rel="noopener">Website</a></div>
 </div>
 </article>
 <article class="work">
@@ -432,7 +445,22 @@ h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em}
 
 <section id="experience" class="sec reveal"><div class="wrap exp" style="gap:48px">
 <div class="head"><span class="eyebrow">03 — Experience</span><h2>From Android dev to full-stack, agent-first.</h2></div>
-<div class="jobs"><div class="job now"><span class="logos"><img src="assets/logo-clevercards.png" alt=""></span><div class="jb"><div class="jh"><b class="co">CleverCards <small>Dublin, Ireland · fintech</small></b><time>Feb 2023 — now</time></div><div class="roles"><div class="role cur"><div class="jh"><b>Senior Full Stack Engineer, AI-First</b><time>Feb 2026 — now</time></div><p>Working across core, API, web and mobile repos with AI-driven development. Helped build a new mobile workflow and rolled out POCs quickly for the CTO while adapting to new features fast.</p><div class="jm"><strong>−70% working time across Design, Product and Engineering</strong></div><div class="chips"><span>Flutter</span><span>Node/TS</span><span>React</span><span>Claude Code</span></div></div><div class="role"><div class="jh"><b>Senior Mobile Developer</b><time>Feb 2023 — Jan 2026</time></div><p>Helped rebuild the app and maintain core business use cases through three peak Christmas seasons at hundreds of thousands of transactions a day and 30–50k DAU. Shipped a modern UI/UX.</p><div class="jm"><strong>99% crash-free · app size −70% · load time −60%</strong></div><div class="chips"><span>Flutter</span><span>Kotlin</span><span>Swift</span><span>Apple Pay</span><span>Google Pay</span></div></div></div></div></div><div class="job now"><span class="logos"><img src="assets/logo-arki.png" alt=""></span><div class="jb"><div class="jh"><b>Senior Full Stack Engineer, AI-First · Arki Finance</b><time>Feb 2026 — now</time></div><p>Part-time consulting, Singapore. Frontend lead on a MAS-licensed wealth app, working with the CTO and Principal Engineer. Introduced the spec-driven, AI-augmented workflow and agentic harness so the team hits product milestones faster.</p><div class="jm"><strong>MAS-licensed wealth app, live on iOS and Android</strong></div><div class="chips"><span>Flutter</span><span>TypeScript</span><span>Firebase</span><span>AWS</span><span>Claude Code</span></div></div></div><div class="job now"><span class="logos"><img src="assets/logo-shipeace.png" alt=""></span><div class="jb"><div class="jh"><b>Senior Full Stack Engineer, AI-First · Shipeace</b><time>Jul 2024 — now</time></div><p>Part-time consulting, Singapore. Mobile lead on an AI logistics platform: shipment tracking, RAG and document AI. Built the spec-driven, AI-augmented SDLC that speeds up feature delivery and helped get the product investment-ready.</p><div class="jm"><strong>$1.5M raised</strong></div><div class="chips"><span>Flutter</span><span>Next.js</span><span>Python</span><span>AWS</span><span>Claude Code</span></div></div></div><div class="era">Earlier career</div><div class="job old"><span class="logos"><img src="assets/logo-snapex.png" alt=""></span><div class="jb"><div class="jh"><b>Mobile Tech Lead · SnapEx</b><time>Oct 2022 — Jan 2023</time></div><p>Sole mobile developer: rebuilt a crypto exchange app from scratch in Flutter and defined its architecture and conventions. Hong Kong.</p><div class="jm"><strong>Solo rebuild</strong></div><div class="chips"><span>Flutter</span></div></div></div><div class="job old"><span class="logos"><img src="assets/logo-shuei.png" alt=""></span><div class="jb"><div class="jh"><b>Senior Mobile Developer · Shuei Trading</b><time>May 2021 — Sep 2022</time></div><p>Mobile tech lead on a new e-commerce app; led an outsourced team and shipped feedback-driven features. Tokyo.</p><div class="jm"><strong>+70% active users · +30% engagement</strong><span class="proj">BellCosme · Cosme de Net · Lens Labo</span></div><div class="chips"><span>Flutter</span><span>Firebase</span><span>VueJS</span><span>.NET Core</span></div></div></div><div class="job old"><span class="logos"><img src="assets/logo-collectivec.png" alt=""></span><div class="jb"><div class="jh"><b>Senior Mobile Developer · The Collective C</b><time>Apr 2020 — Apr 2021</time></div><p>Led the mobile team, set architecture and conventions, trained juniors, and researched Blockchain and NFT features. Ho Chi Minh City.</p><div class="jm"><strong>+40% team-wide code quality</strong><span class="proj">Trip Social · ACKTrails · Lexus TA SHARE</span></div><div class="chips"><span>Flutter</span><span>Android</span><span>iOS</span><span>GraphQL</span><span>MapBox</span><span>Realm</span></div></div></div><div class="job old"><span class="logos"><img src="assets/logo-zien.png" alt=""></span><div class="jb"><div class="jh"><b>Software Engineer · Zien Solutions</b><time>Jul 2018 — Apr 2020</time></div><p>Owned back-end and front-end on the AVflow no-code video platform; database design and AWS integrations. Ho Chi Minh City.</p><div class="jm"><strong>Full-stack ownership</strong></div><div class="chips"><span>Android</span><span>iOS</span><span>Flutter</span><span>NodeJS</span><span>AWS</span><span>Angular</span></div></div></div><div class="job old"><span class="logos"><img src="assets/logo-aris.png" alt=""></span><div class="jb"><div class="jh"><b>Android Developer · ARIS Vietnam</b><time>Mar 2017 — Jun 2018</time></div><p>Native Android for Japanese-market clients in an Agile/Scrum team. Ho Chi Minh City.</p><div class="jm"><strong>First role · native Android</strong></div><div class="chips"><span>Android</span><span>Java</span><span>Kotlin</span></div></div></div></div>
+<div class="jobs"><div class="job now"><span class="logos"><img src="assets/logo-clevercards.png" alt=""></span><div class="jb"><div class="jh"><b class="co">CleverCards <small>Dublin, Ireland · fintech</small></b><time>Feb 2023 — now</time></div><div class="roles"><div class="role cur"><div class="jh"><b>Senior Full Stack Engineer, AI-First</b><time>Feb 2026 — now</time></div><ul class="resp">
+<li>Work across core, API, web and mobile repos with AI-driven development.</li>
+<li>Helped build a new mobile workflow and rolled out POCs for the CTO at speed, adapting to new features fast.</li>
+<li>Brought Claude Code, GitHub Copilot and Figma MCP into the workflow, scaffolding UI from designer handoffs.</li>
+</ul><div class="jm"><strong>−70% working time across Design, Product and Engineering</strong></div><div class="chips"><span>Flutter</span><span>Node/TS</span><span>React</span><span>Claude Code</span></div></div><div class="role"><div class="jh"><b>Senior Mobile Developer</b><time>Feb 2023 — Jan 2026</time></div><ul class="resp">
+<li>Helped rebuild the flagship app and keep core business use cases running through three peak Christmas seasons: hundreds of thousands of transactions a day, 30–50k DAU. Shipped a modern UI/UX.</li>
+<li>Architected and built the B2B Mobile SDK (iOS, Android, Flutter) so partners integrate card management across Ireland, the UK and the US.</li>
+<li>Designed the server-to-server token architecture and Node.js/TypeScript APIs behind the SDK’s authentication.</li>
+<li>Built the security-critical layer: biometric auth, Keychain/Keystore token storage, jailbreak/root detection, OCR receipt matching.</li>
+<li>Integrated Apple Pay and Google Pay, and owned App Store and Play Store submissions.</li>
+</ul><div class="jm"><strong>99% crash-free · app size −70% · load time −60%</strong></div><div class="chips"><span>Flutter</span><span>Kotlin</span><span>Swift</span><span>Apple Pay</span><span>Google Pay</span></div></div></div></div></div><div class="job now"><span class="logos"><img src="assets/logo-shipeace.png" alt=""></span><div class="jb"><div class="jh"><b>Senior Full Stack Engineer, AI-First · Shipeace</b><time>Jul 2024 — now</time></div><p>Part-time consulting, Singapore.</p>
+<ul class="resp">
+<li>Mobile lead on an AI logistics platform: shipment tracking, RAG and document AI.</li>
+<li>Built the spec-driven, AI-augmented SDLC that speeds up feature delivery, the workflow my agent harness grew out of.</li>
+<li>Helped get the product investment-ready.</li>
+</ul><div class="jm"><strong>$1.5M raised</strong></div><div class="chips"><span>Flutter</span><span>Next.js</span><span>Python</span><span>AWS</span><span>Claude Code</span></div></div></div><div class="era">Earlier career</div><div class="job old"><span class="logos"><img src="assets/logo-snapex.png" alt=""></span><div class="jb"><div class="jh"><b>Mobile Tech Lead · SnapEx</b><time>Oct 2022 — Jan 2023</time></div><p>Sole mobile developer: rebuilt a crypto exchange app from scratch in Flutter and defined its architecture and conventions. Hong Kong.</p><div class="jm"><strong>Solo rebuild</strong></div><div class="chips"><span>Flutter</span></div></div></div><div class="job old"><span class="logos"><img src="assets/logo-shuei.png" alt=""></span><div class="jb"><div class="jh"><b>Senior Mobile Developer · Shuei Trading</b><time>May 2021 — Sep 2022</time></div><p>Mobile tech lead on a new e-commerce app; led an outsourced team and shipped feedback-driven features. Tokyo.</p><div class="jm"><strong>+70% active users · +30% engagement</strong><span class="proj">BellCosme · Cosme de Net · Lens Labo</span></div><div class="chips"><span>Flutter</span><span>Firebase</span><span>VueJS</span><span>.NET Core</span></div></div></div><div class="job old"><span class="logos"><img src="assets/logo-collectivec.png" alt=""></span><div class="jb"><div class="jh"><b>Senior Mobile Developer · The Collective C</b><time>Apr 2020 — Apr 2021</time></div><p>Led the mobile team, set architecture and conventions, trained juniors, and researched Blockchain and NFT features. Ho Chi Minh City.</p><div class="jm"><strong>+40% team-wide code quality</strong><span class="proj">Trip Social · ACKTrails · Lexus TA SHARE</span></div><div class="chips"><span>Flutter</span><span>Android</span><span>iOS</span><span>GraphQL</span><span>MapBox</span><span>Realm</span></div></div></div><div class="job old"><span class="logos"><img src="assets/logo-zien.png" alt=""></span><div class="jb"><div class="jh"><b>Software Engineer · Zien Solutions</b><time>Jul 2018 — Apr 2020</time></div><p>Owned back-end and front-end on the AVflow no-code video platform; database design and AWS integrations. Ho Chi Minh City.</p><div class="jm"><strong>Full-stack ownership</strong></div><div class="chips"><span>Android</span><span>iOS</span><span>Flutter</span><span>NodeJS</span><span>AWS</span><span>Angular</span></div></div></div><div class="job old"><span class="logos"><img src="assets/logo-aris.png" alt=""></span><div class="jb"><div class="jh"><b>Android Developer · ARIS Vietnam</b><time>Mar 2017 — Jun 2018</time></div><p>Native Android for Japanese-market clients in an Agile/Scrum team. Ho Chi Minh City.</p><div class="jm"><strong>First role · native Android</strong></div><div class="chips"><span>Android</span><span>Java</span><span>Kotlin</span></div></div></div></div>
 </div></section>
 
 <section id="stack" class="sec reveal"><div class="wrap" style="gap:40px">
